@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio 
 
-## Getting Started
+This is a **Next.js** developer portfolio project, inspired by the [JavaScript Mastery YouTube video](https://www.youtube.com/watch?v=RbxHZwFtRT4&t=34013s&ab_channel=JavaScriptMastery). It showcases a modern, clean design with sections that highlight developer skills, projects, and phases of work using interactive components, including 3D animated pins and magic cards.
 
-First, run the development server:
+## 🔥 Features
+
+- **Modern UI/UX**: A clean and responsive design to showcase your projects, skills, and background as a developer.
+- **3D Animations**: Interactive 3D elements (such as the skills section magic cards) for an engaging user experience.
+- **Developer Workflow Phases**: A visually appealing section that breaks down your skills and work phases.
+- **Optimized Performance**: The site uses [next/font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) for optimal loading of custom fonts.
+- **Recent Projects**: A section dedicated to showcasing your portfolio projects with a sleek layout and smooth transitions.
+- **Deployed**: Deployed for fast, global delivery and seamless CI/CD integration.
+
+## 🛠️ Technologies Used
+
+- **React** with **Next.js** for a fast and SEO-friendly static site generation.
+- **TypeScript** for type-safe code and better maintainability.
+- **Styled Components** and **CSS Modules** for styling.
+- **Framer Motion** for animations.
+- **3D Models** and animations using **Aceternity UI**.
+- **Server Host** for deployment.
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these steps:
+
+### Prerequisites
+
+Ensure you have **Node.js** and **npm** (or **yarn**, **pnpm**, **bun**) installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/0xPedroF/portfolio-developer.git
+cd portfolio-developer
+```
+
+2. Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+3. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open your browser and navigate to:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+http://localhost:3000
+```
+The app will automatically reload when you make changes to the code.
