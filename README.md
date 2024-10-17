@@ -1,6 +1,6 @@
 # Developer Portfolio 
 
-This is a **Next.js** developer portfolio project, inspired by the [JavaScript Mastery YouTube video](https://www.youtube.com/watch?v=RbxHZwFtRT4&t=34013s&ab_channel=JavaScriptMastery). It showcases a modern, clean design with sections that highlight developer skills, projects, and phases of work using interactive components, including 3D animated pins and magic cards.
+This is a **Next.js** developer portfolio project. It showcases a modern, clean design with sections that highlight developer skills, projects, and phases of work using interactive components, including 3D animated objects and magic cards.
 
 ## 🔥 Features
 
