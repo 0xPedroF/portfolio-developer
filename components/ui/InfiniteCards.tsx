@@ -73,7 +73,6 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        // max-w-7xl to w-screen
         "scroller relative z-20 w-screen overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
@@ -81,7 +80,6 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          // change gap-16
           " flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
@@ -89,7 +87,6 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            //   change md:w-[450px] to md:w-[60vw] , px-8 py-6 to p-16, border-slate-700 to border-slate-800
             className="w-[90vw] max-w-full relative rounded-2xl border border-b-0
              flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
             style={{
@@ -119,7 +116,6 @@ export const InfiniteMovingCards = ({
                   <img src="/profile.svg" alt="profile" />
                 </div>
                 <span className="flex flex-col gap-1">
-                  {/* change text color, font-normal to font-bold, text-xl */}
                   <span className="text-xl font-bold leading-[1.6] text-white">
                     {item.name}
                   </span>
