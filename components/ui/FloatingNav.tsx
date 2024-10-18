@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Switch } from "./Switch";
 
 export const FloatingNav = ({
   navItems,
@@ -23,6 +24,7 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
@@ -40,6 +42,12 @@ export const FloatingNav = ({
       }
     }
   });
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    // Optionally, you can add logic here to apply dark mode styles to your application
+    document.body.classList.toggle("dark-mode", !isDarkMode);
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -73,7 +81,7 @@ export const FloatingNav = ({
             <span className=" text-sm !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
-        
+        <Switch checked={isDarkMode} setChecked={toggleDarkMode} />
       </motion.div>
     </AnimatePresence>
   );
