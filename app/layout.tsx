@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +15,19 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro's Portfolio",
-  description: "Moder & Minimalist Portfolio",
+  title: "Pedro F. | Web Developer Portfolio",
+  description: "Explore my portfolio, I'm a passionate web developer specializing in creating modern, minimalist, and responsive websites and software. Discover projects, skills, and more.",
+  keywords: [
+    "Pedro Ferreira",
+    "Web Developer Portfolio",
+    "Modern Web Design",
+    "Responsive Web Development",
+    "Minimalist Portfolio",
+    "Frontend Developer",
+    "React Developer",
+    "JavaScript Projects",
+    "Pedro F. Developer"
+  ],
   icons:{
     icon: "/favicon.svg"
   }
