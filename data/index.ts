@@ -73,11 +73,11 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "SailorMooners",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    title: "SailorMooners - SPA Built in 24 Hours",
+    des: "A single-page application inspired by Sailor Moon, developed in 24 hours during a hackathon. Built with jQuery.",
+    img: "/p5.svg",
+    iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
+    link: "https://sailormooners.pedrofdev.com/",
   },
   {
     id: 2,
@@ -89,11 +89,11 @@ export const projects = [
   },
   {
     id: 3,
-    title: "SailorMooners (SPA) - Hackathon ",
-    des: "A single-page application inspired by Sailor Moon, developed in 24 hours during a hackathon.",
-    img: "/p5.svg",
+    title: "Fetch API - Pokemon Theme",
+    des: "API-powered project. It fetches and displays Pokémon data dynamically, offering a interface to browse your Pokémon.",
+    img: "/scs-fetchAPIpokemon.svg",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
-    link: "https://sailormooners.pedrofdev.com/",
+    link: "https://pokeapi.pedrofdev.com/",
   },
 ];
 
