@@ -73,9 +73,9 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "SailorMooners - SPA Built in 24 Hours",
+    title: "SailorMooners (SPA) - Hackathon ",
     des: "A single-page application inspired by Sailor Moon, developed in 24 hours during a hackathon. Built with jQuery.",
-    img: "/p5.svg",
+    img: "/scs-sailormooners.svg",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
     link: "https://sailormooners.pedrofdev.com/",
   },
@@ -85,7 +85,7 @@ export const projects = [
     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    link: "https://iphone-clone.xyz/",
   },
   {
     id: 3,
