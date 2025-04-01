@@ -7,7 +7,7 @@ const ClientProjects = () => {
   return (
     <div className="py-20" id="clientProjects">
       <h1 className="heading">
-        Projects I’ve Developed for{" "}
+        Projects I've Developed for{" "}
         <span className="text-purple">Clients</span>
       </h1>
 
@@ -55,10 +55,14 @@ const ClientProjects = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <a className="flex lg:text-xl md:text-xs text-sm text-purple" href={link} target="_blank">
+                  <a 
+                    className="flex lg:text-xl md:text-xs text-sm text-purple border border-purple rounded-full px-4 py-2 transition-all duration-300 hover:bg-purple hover:text-white group" 
+                    href={link} 
+                    target="_blank"
+                  >
                     Check Live Site
+                    <FaLocationArrow className="ms-2 group-hover:translate-x-1 transition-transform duration-300" color="#CBACF9" />
                   </a>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
             </PinContainer>

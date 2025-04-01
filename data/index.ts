@@ -123,16 +123,24 @@ export const projects = [
     link: "/ui.aiimg.com",
   },*/
 
-  export const clientProjects = [
-    {
-      id: 1,
-      title: "PJ Ferreira - Aluminium & PVC",
-      des: "A modern website for PJ Ferreira, specializing in aluminium and PVC products.",
-      img: "/scs-pj.svg",
-      iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg", "/hostinger.svg"],
-      link: "https://pjferreira.pt/",
-    },
-  ];
+export const clientProjects = [
+  {
+    id: 1,
+    title: "PJ Ferreira - Aluminium & PVC",
+    des: "A modern website for PJ Ferreira, specializing in aluminium and PVC products.",
+    img: "/scs-pj.svg",
+    iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg", "/hostinger.svg"],
+    link: "https://pjferreira.pt/",
+  },
+  {
+    id: 2,
+    title: "Nails by Johanna",
+    des: "A professional website for a nail salon showcasing services, professional work, and appointment booking functionality.",
+    img: "/scs-nailsbyjohanna.svg",
+    iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/vite.svg"],
+    link: "https://nailsbyjohanna.pedrofdev.com/",
+  },
+];
 
 export const testimonials = [
   {
