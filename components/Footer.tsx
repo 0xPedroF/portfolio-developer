@@ -37,9 +37,23 @@ const Footer = () => {
               key={info.id}
               href={info.link}
               target="_blank"
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              download={info.download ? "CV-Resume-Pedro-Ferreira.pdf" : null}
+              className="w-12 h-12 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg 
+              saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-purple/30 
+              hover:border-purple hover:scale-110 transition-all duration-300 group relative"
+              aria-label={info.label || `Social link ${info.id}`}
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
+              <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity 
+              duration-300 bg-black-200 px-2 py-1 rounded text-xs whitespace-nowrap">
+                {info.id === 1 ? 'GitHub' : info.id === 2 ? 'LinkedIn' : 'Download Resume'}
+              </div>
+              <img 
+                src={info.img} 
+                alt={info.id === 1 ? 'GitHub' : info.id === 2 ? 'LinkedIn' : 'Resume'} 
+                width={24} 
+                height={24}
+                className="group-hover:scale-110 transition-transform duration-300" 
+              />
             </a>
           ))}
         </div>

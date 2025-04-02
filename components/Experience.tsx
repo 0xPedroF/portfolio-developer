@@ -1,6 +1,6 @@
 import React from "react";
 
-import { workExperience } from "@/data";
+import { workExperience, socialMedia } from "@/data";
 import { Button } from "./ui/MovingBorders";
 
 
@@ -47,6 +47,43 @@ const Experience = () => {
             </div>
           </Button>
         ))}
+      </div>
+
+      {/* Social Media Connect Section */}
+      <div className="mt-16 flex flex-col items-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          Connect with me on <span className="text-purple">social media</span>
+        </h2>
+        
+        <div className="flex items-center gap-6 mt-2">
+          {socialMedia.map((info) => (
+            <a
+              key={info.id}
+              href={info.link}
+              target="_blank"
+              download={info.download ? "CV-Resume-Pedro-Ferreira.pdf" : null}
+              className="w-16 h-16 cursor-pointer flex justify-center items-center backdrop-filter 
+              backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-xl border border-purple/30 
+              hover:border-purple hover:scale-110 transition-all duration-300 group relative"
+              aria-label={info.label || `Social link ${info.id}`}
+            >
+              <div className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-opacity 
+              duration-300 bg-black-200 px-3 py-2 rounded-lg text-sm font-medium">
+                {info.id === 1 ? 'GitHub' : info.id === 2 ? 'LinkedIn' : 'Download Resume'}
+              </div>
+              <img 
+                src={info.img} 
+                alt={info.id === 1 ? 'GitHub' : info.id === 2 ? 'LinkedIn' : 'Resume'} 
+                width={32} 
+                height={32}
+                className="group-hover:scale-110 transition-transform duration-300" 
+              />
+            </a>
+          ))}
+        </div>
+        <p className="text-white-200 text-center mt-6 max-w-lg">
+          Check out my work, connect professionally, or download my resume to learn more about my experience
+        </p>
       </div>
     </div>
   );

@@ -253,6 +253,8 @@ export const socialMedia = [
   {
     id: 3,
     img: "/cvFile.svg",
-    link: "https://drive.google.com/file/d/1Wobhzc3tGSpDsFe7VPdJhJvxa-xzkcfq/view?usp=sharing",
+    link: "/docs/CV-Resume-Pedro-Ferreira.pdf",
+    download: true,
+    label: "Download Resume"
   },
 ];
