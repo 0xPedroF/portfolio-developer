@@ -37,7 +37,7 @@ const Footer = () => {
               key={info.id}
               href={info.link}
               target="_blank"
-              download={info.download ? "CV-Resume-Pedro-Ferreira.pdf" : null}
+              download={info.download ? true : null}
               className="w-12 h-12 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg 
               saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-purple/30 
               hover:border-purple hover:scale-110 transition-all duration-300 group relative"
