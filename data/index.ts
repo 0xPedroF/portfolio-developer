@@ -136,7 +136,7 @@ export const clientProjects = [
     id: 2,
     title: "Nails by Johanna",
     des: "A professional website for a nail salon showcasing services, professional work, and appointment booking functionality.",
-    img: "/scs-nailsbyjohanna.svg",
+    img: "/scs-nailsbyjohanna.jpg",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/vite.svg"],
     link: "https://nailsbyjohanna.pedrofdev.com/",
   },
