@@ -15,10 +15,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro Fernandes | Developer Portfolio",
-  description: "A skilled software developer with expertise in React, Next.js, and TypeScript.",
+  title: "Pedro F. | Web Developer Portfolio",
+  description: "A skilled software developer with expertise in React, Next.js, Java and TypeScript.",
   keywords: [
-    "Pedro Fernandes",
+    "Pedro Ferreira",
     "Software Developer",
     "Developer",
     "web development",
