@@ -2,7 +2,6 @@ import { projects } from "@/data";
 import React from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
-import Image from "next/image";
 
 const RecentProjects = () => {
   return (
@@ -24,28 +23,9 @@ const RecentProjects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <Image 
-                    src="/bg.png" 
-                    alt="Background" 
-                    fill
-                    sizes="(max-width: 768px) 100vw, 570px"
-                    className="object-cover"
-                    priority={false}
-                    loading="lazy"
-                  />
+                  <img src="/bg.png" alt="Background" className="w-full h-full object-cover" />
                 </div>
-                <div className="z-10 absolute bottom-0 w-auto h-auto">
-                  <Image 
-                    src={img} 
-                    alt={title} 
-                    width={550} 
-                    height={450}
-                    sizes="(max-width: 768px) 90vw, 550px"
-                    priority={false}
-                    loading="lazy"
-                    className="max-w-full h-auto"
-                  />
-                </div>
+                <img src={img} alt={title} className="z-10 absolute bottom-0 max-w-full h-auto" />
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -69,14 +49,7 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <Image 
-                        src={icon} 
-                        alt={`Technology icon ${index + 1}`} 
-                        width={24} 
-                        height={24}
-                        className="p-2"
-                        loading="lazy"
-                      />
+                      <img src={icon} alt={`Technology icon ${index + 1}`} className="p-2" />
                     </div>
                   ))}
                 </div>

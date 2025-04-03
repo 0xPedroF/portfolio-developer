@@ -15,22 +15,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro F. | Web Developer Portfolio",
-  description: "Explore my portfolio, I'm a passionate web developer specializing in creating modern, minimalist, and responsive websites and software. Discover projects, skills, and more.",
+  title: "Pedro Fernandes | Developer Portfolio",
+  description: "A skilled software developer with expertise in React, Next.js, and TypeScript.",
   keywords: [
-    "Pedro Ferreira",
-    "Web Developer Portfolio",
-    "Modern Web Design",
-    "Responsive Web Development",
-    "Minimalist Portfolio",
-    "Frontend Developer",
-    "React Developer",
-    "JavaScript Projects",
-    "Pedro F. Developer"
+    "Pedro Fernandes",
+    "Software Developer",
+    "Developer",
+    "web development",
+    "next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Frontend",
+    "Full-stack",
   ],
-  icons:{
-    icon: "/favicon.svg"
-  }
+  icons: [
+    {
+      rel: "icon",
+      url: "/icon.svg",
+      type: "image/svg+xml",
+    }
+  ],
 };
 
 export default function RootLayout({

@@ -5,9 +5,7 @@ const nextConfig = {
   images: {
     domains: [],
     dangerouslyAllowSVG: true,
-    remotePatterns: [],
     unoptimized: false,
-    formats: ['image/avif', 'image/webp'],
   },
   // Optimize bundles
   swcMinify: true,
@@ -17,32 +15,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Enable incremental static regeneration
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'react-icons'],
     scrollRestoration: true,
-  },
-  // Improve performance by setting common headers
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/(.*).svg',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
   },
 };
 

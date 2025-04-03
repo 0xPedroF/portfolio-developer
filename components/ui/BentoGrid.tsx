@@ -3,11 +3,22 @@
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GrideGlobe";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import animationData from '@/data/confetti.json'
 import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+import { ErrorBoundary } from "react-error-boundary";
+
+// Dynamically import the Lottie component with SSR disabled to prevent hydration issues
+// This also avoids the componentWillUpdate deprecation warning
+const LottieWrapper = dynamic(() => import('react-lottie').then(mod => {
+  const Lottie = mod.default;
+  return (props) => <Lottie {...props} />;
+}), { 
+  ssr: false,
+  // No loading component to prevent hydration mismatches
+});
 
 export const BentoGrid = ({
   className,
@@ -52,6 +63,19 @@ export const BentoGridItem = ({
   const rightLists = ["Firebase", "NextJS", "MongoDB"];
 
   const [copied, setCopied] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [showLottie, setShowLottie] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Only show Lottie animation after the component is mounted and copied state is true
+  useEffect(() => {
+    if (isMounted && copied) {
+      setShowLottie(true);
+    }
+  }, [isMounted, copied]);
 
   const defaultOptions = {
     loop: copied,
@@ -100,13 +124,11 @@ export const BentoGridItem = ({
             <img
               src={spareImg}
               alt={spareImg}
-              //   width={220}
               className="object-cover object-center w-full h-full"
             />
           )}
         </div>
         {id === 6 && (
-          // add background animation , remove the p tag
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -128,7 +150,11 @@ export const BentoGridItem = ({
           </div>
 
           {/* for the github 3d globe */}
-          {id === 2 && <GridGlobe />}
+          {id === 2 && (
+            <div className="relative w-full h-full">
+              <GridGlobe />
+            </div>
+          )}
 
           {/* Tech stack list div */}
           {id === 3 && (
@@ -144,10 +170,10 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
@@ -164,11 +190,12 @@ export const BentoGridItem = ({
             <div className="mt-5 relative">
               {/* button border magic from tailwind css buttons  */}
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
+                className={`absolute -bottom-5 right-0 ${copied ? "block" : "hidden"}`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {/* Only render Lottie component client-side when it should be shown */}
+                {isMounted && showLottie && (
+                  <LottieWrapper options={defaultOptions} height={200} width={400} />
+                )}
               </div>
 
               <MagicButton

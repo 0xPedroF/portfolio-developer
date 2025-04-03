@@ -1,13 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
+// Dynamic import with no SSR to avoid hydration issues
 const World = dynamic(() => import("./Globe").then((m) => m.World), {
   ssr: false,
 });
 
 const GridGlobe = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    try {
+      setIsMounted(true);
+    } catch (error) {
+      console.error("Failed to initialize globe:", error);
+      setIsError(true);
+    }
+  }, []);
+
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -30,382 +43,147 @@ const GridGlobe = () => {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
+  
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
-  const sampleArcs = [
-    {
-      order: 1,
-      startLat: -19.885592,
-      startLng: -43.951191,
-      endLat: -22.9068,
-      endLng: -43.1729,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 1,
-      startLat: 28.6139,
-      startLng: 77.209,
-      endLat: 3.139,
-      endLng: 101.6869,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 1,
-      startLat: -19.885592,
-      startLng: -43.951191,
-      endLat: -1.303396,
-      endLng: 36.852443,
-      arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 2,
-      startLat: 1.3521,
-      startLng: 103.8198,
-      endLat: 35.6762,
-      endLng: 139.6503,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 2,
-      startLat: 51.5072,
-      startLng: -0.1276,
-      endLat: 3.139,
-      endLng: 101.6869,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 2,
-      startLat: -15.785493,
-      startLng: -47.909029,
-      endLat: 36.162809,
-      endLng: -115.119411,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 3,
-      startLat: -33.8688,
-      startLng: 151.2093,
-      endLat: 22.3193,
-      endLng: 114.1694,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 3,
-      startLat: 21.3099,
-      startLng: -157.8581,
-      endLat: 40.7128,
-      endLng: -74.006,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 3,
-      startLat: -6.2088,
-      startLng: 106.8456,
-      endLat: 51.5072,
-      endLng: -0.1276,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 4,
-      startLat: 11.986597,
-      startLng: 8.571831,
-      endLat: -15.595412,
-      endLng: -56.05918,
-      arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 4,
-      startLat: -34.6037,
-      startLng: -58.3816,
-      endLat: 22.3193,
-      endLng: 114.1694,
-      arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 4,
-      startLat: 51.5072,
-      startLng: -0.1276,
-      endLat: 48.8566,
-      endLng: -2.3522,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 5,
-      startLat: 14.5995,
-      startLng: 120.9842,
-      endLat: 51.5072,
-      endLng: -0.1276,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 5,
-      startLat: 1.3521,
-      startLng: 103.8198,
-      endLat: -33.8688,
-      endLng: 151.2093,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 5,
-      startLat: 34.0522,
-      startLng: -118.2437,
-      endLat: 48.8566,
-      endLng: -2.3522,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 6,
-      startLat: -15.432563,
-      startLng: 28.315853,
-      endLat: 1.094136,
-      endLng: -63.34546,
-      arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 6,
-      startLat: 37.5665,
-      startLng: 126.978,
-      endLat: 35.6762,
-      endLng: 139.6503,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 6,
-      startLat: 22.3193,
-      startLng: 114.1694,
-      endLat: 51.5072,
-      endLng: -0.1276,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 7,
-      startLat: -19.885592,
-      startLng: -43.951191,
-      endLat: -15.595412,
-      endLng: -56.05918,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 7,
-      startLat: 48.8566,
-      startLng: -2.3522,
-      endLat: 52.52,
-      endLng: 13.405,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 7,
-      startLat: 52.52,
-      startLng: 13.405,
-      endLat: 34.0522,
-      endLng: -118.2437,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 8,
-      startLat: -8.833221,
-      startLng: 13.264837,
-      endLat: -33.936138,
-      endLng: 18.436529,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 8,
-      startLat: 49.2827,
-      startLng: -123.1207,
-      endLat: 52.3676,
-      endLng: 4.9041,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 8,
-      startLat: 1.3521,
-      startLng: 103.8198,
-      endLat: 40.7128,
-      endLng: -74.006,
-      arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 9,
-      startLat: 51.5072,
-      startLng: -0.1276,
-      endLat: 34.0522,
-      endLng: -118.2437,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 9,
-      startLat: 22.3193,
-      startLng: 114.1694,
-      endLat: -22.9068,
-      endLng: -43.1729,
-      arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 9,
-      startLat: 1.3521,
-      startLng: 103.8198,
-      endLat: -34.6037,
-      endLng: -58.3816,
-      arcAlt: 0.5,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 10,
-      startLat: -22.9068,
-      startLng: -43.1729,
-      endLat: 28.6139,
-      endLng: 77.209,
-      arcAlt: 0.7,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 10,
-      startLat: 34.0522,
-      startLng: -118.2437,
-      endLat: 31.2304,
-      endLng: 121.4737,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 10,
-      startLat: -6.2088,
-      startLng: 106.8456,
-      endLat: 52.3676,
-      endLng: 4.9041,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 11,
-      startLat: 41.9028,
-      startLng: 12.4964,
-      endLat: 34.0522,
-      endLng: -118.2437,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 11,
-      startLat: -6.2088,
-      startLng: 106.8456,
-      endLat: 31.2304,
-      endLng: 121.4737,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 11,
-      startLat: 22.3193,
-      startLng: 114.1694,
-      endLat: 1.3521,
-      endLng: 103.8198,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 12,
-      startLat: 34.0522,
-      startLng: -118.2437,
-      endLat: 37.7749,
-      endLng: -122.4194,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 12,
-      startLat: 35.6762,
-      startLng: 139.6503,
-      endLat: 22.3193,
-      endLng: 114.1694,
-      arcAlt: 0.2,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 12,
-      startLat: 22.3193,
-      startLng: 114.1694,
-      endLat: 34.0522,
-      endLng: -118.2437,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 13,
-      startLat: 52.52,
-      startLng: 13.405,
-      endLat: 22.3193,
-      endLng: 114.1694,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 13,
-      startLat: 11.986597,
-      startLng: 8.571831,
-      endLat: 35.6762,
-      endLng: 139.6503,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 13,
-      startLat: -22.9068,
-      startLng: -43.1729,
-      endLat: -34.6037,
-      endLng: -58.3816,
-      arcAlt: 0.1,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-    {
-      order: 14,
-      startLat: -33.936138,
-      startLng: 18.436529,
-      endLat: 21.395643,
-      endLng: 39.883798,
-      arcAlt: 0.3,
-      color: colors[Math.floor(Math.random() * (colors.length - 1))],
-    },
-  ];
-
-  return (
-    
-    <div className="flex items-center justify-center absolute -left-5 top-36 md:top-40 w-full h-full">
-      
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-
-        <div className="absolute w-full h-72 md:h-full z-10">
-          <World data={sampleArcs} globeConfig={globeConfig} />
-        </div>
-      </div>
+  
+  // Render a placeholder during server-side rendering
+  // This will be replaced during client-side hydration
+  const placeholder = (
+    <div className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1 flex items-center justify-center bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-full">
+      {/* Empty div to prevent hydration mismatch */}
     </div>
   );
+  
+  // If there's an error, show a fallback UI
+  if (isError) {
+    return (
+      <div className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1 flex items-center justify-center bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-full">
+        <span className="text-blue-300 text-sm">3D Globe visualization unavailable</span>
+      </div>
+    );
+  }
+  
+  // Only render the World component on client side
+  if (!isMounted) {
+    return placeholder;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1"
+    >
+      <World globeConfig={globeConfig} data={generateRandomData(colors)} />
+    </motion.div>
+  );
 };
+
+// Generate reliable data for the globe visualization
+function generateRandomData(colors) {
+  try {
+    if (!colors || !Array.isArray(colors) || colors.length === 0) {
+      // Fallback colors if none provided
+      colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+    }
+    
+    const data = [];
+    const numberOfPoints = Math.floor(Math.random() * 10) + 10; // Between 10-20 points
+    
+    // Major cities coordinates to use as realistic points
+    const majorCities = [
+      { lat: 40.7128, lng: -74.006 },  // New York
+      { lat: 51.5074, lng: -0.1278 },  // London
+      { lat: 48.8566, lng: 2.3522 },   // Paris
+      { lat: 35.6762, lng: 139.6503 }, // Tokyo
+      { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+      { lat: -33.8688, lng: 151.2093 },// Sydney
+      { lat: 19.4326, lng: -99.1332 }, // Mexico City
+      { lat: -23.5505, lng: -46.6333 },// São Paulo
+      { lat: 55.7558, lng: 37.6173 },  // Moscow
+      { lat: 28.6139, lng: 77.209 },   // New Delhi
+      { lat: 1.3521, lng: 103.8198 },  // Singapore
+      { lat: -34.6037, lng: -58.3816 },// Buenos Aires
+      { lat: 37.7749, lng: -122.4194 },// San Francisco
+      { lat: 34.0522, lng: -118.2437 },// Los Angeles
+      { lat: 41.9028, lng: 12.4964 },  // Rome
+      { lat: 52.52, lng: 13.405 },     // Berlin
+    ];
+    
+    for (let i = 0; i < numberOfPoints; i++) {
+      // Get two random cities 
+      const startCityIndex = Math.floor(Math.random() * majorCities.length);
+      let endCityIndex;
+      
+      // Make sure end city is different from start city
+      do {
+        endCityIndex = Math.floor(Math.random() * majorCities.length);
+      } while (endCityIndex === startCityIndex);
+      
+      const startCity = majorCities[startCityIndex];
+      const endCity = majorCities[endCityIndex];
+      
+      // Calculate a good arc altitude based on distance
+      const distance = calculateDistance(
+        startCity.lat, startCity.lng, 
+        endCity.lat, endCity.lng
+      );
+      
+      // Arc height proportional to distance, but capped
+      const arcAlt = Math.min(Math.max(distance / 15000, 0.1), 0.8);
+      
+      // Get a random color from the colors array
+      const colorIndex = Math.floor(Math.random() * colors.length);
+      
+      data.push({
+        order: Math.floor(Math.random() * 8) + 1, // Random order between 1-8
+        startLat: startCity.lat,
+        startLng: startCity.lng,
+        endLat: endCity.lat,
+        endLng: endCity.lng,
+        arcAlt: arcAlt,
+        color: colors[colorIndex],
+      });
+    }
+    
+    return data;
+  } catch (error) {
+    console.error("Error generating globe data:", error);
+    // Return minimal fallback data to prevent rendering errors
+    return [
+      {
+        order: 1,
+        startLat: 40.7128,
+        startLng: -74.006,
+        endLat: 51.5074,
+        endLng: -0.1278,
+        arcAlt: 0.3,
+        color: "#3b82f6"
+      }
+    ];
+  }
+}
+
+// Helper function to calculate distance between two points on Earth
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  try {
+    const R = 6371e3; // Earth's radius in meters
+    const φ1 = lat1 * Math.PI/180;
+    const φ2 = lat2 * Math.PI/180;
+    const Δφ = (lat2-lat1) * Math.PI/180;
+    const Δλ = (lon2-lon1) * Math.PI/180;
+
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    return R * c; // Distance in meters
+  } catch (error) {
+    console.error("Error calculating distance:", error);
+    return 10000; // Return a default distance
+  }
+}
+
 export default GridGlobe;
