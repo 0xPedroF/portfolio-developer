@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
 /**  UI: border magic from tailwind css btns
  *   Link: https://ui.aceternity.com/components/tailwindcss-buttons */
-const MagicButton = ({
+const MagicButton = memo(({
   title,
   icon,
   position,
@@ -31,6 +31,8 @@ const MagicButton = ({
       </span>
     </button>
   );
-};
+});
+
+MagicButton.displayName = "MagicButton";
 
 export default MagicButton;

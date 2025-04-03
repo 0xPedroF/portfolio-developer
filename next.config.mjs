@@ -1,6 +1,50 @@
 import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  // Enable image optimization for better performance
+  images: {
+    domains: [],
+    dangerouslyAllowSVG: true,
+    remotePatterns: [],
+    unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
+  },
+  // Optimize bundles
+  swcMinify: true,
+  // Enable compression for better performance
+  compress: true,
+  // Enable React strict mode for better development
+  reactStrictMode: true,
+  // Enable incremental static regeneration
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['framer-motion', 'react-icons'],
+    scrollRestoration: true,
+  },
+  // Improve performance by setting common headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(.*).svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+};
 
 export default withSentryConfig(nextConfig, {
 // For all available options, see:

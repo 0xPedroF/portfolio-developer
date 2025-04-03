@@ -2,6 +2,7 @@ import { projects } from "@/data";
 import React from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
+import Image from "next/image";
 
 const RecentProjects = () => {
   return (
@@ -23,9 +24,28 @@ const RecentProjects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bg-img" />
+                  <Image 
+                    src="/bg.png" 
+                    alt="Background" 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 570px"
+                    className="object-cover"
+                    priority={false}
+                    loading="lazy"
+                  />
                 </div>
-                <img src={img} alt={title} className="z-10 absolute bottom-0" />
+                <div className="z-10 absolute bottom-0 w-auto h-auto">
+                  <Image 
+                    src={img} 
+                    alt={title} 
+                    width={550} 
+                    height={450}
+                    sizes="(max-width: 768px) 90vw, 550px"
+                    priority={false}
+                    loading="lazy"
+                    className="max-w-full h-auto"
+                  />
+                </div>
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -49,7 +69,14 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <img src={icon} alt={icon} className="p-2" />
+                      <Image 
+                        src={icon} 
+                        alt={`Technology icon ${index + 1}`} 
+                        width={24} 
+                        height={24}
+                        className="p-2"
+                        loading="lazy"
+                      />
                     </div>
                   ))}
                 </div>
