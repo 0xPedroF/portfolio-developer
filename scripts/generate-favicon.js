@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Source file
-const source = path.resolve(__dirname, '../public/icon.svg');
+const source = path.resolve(__dirname, '../public/favicon.png');
 
 // Configuration
 const configuration = {
