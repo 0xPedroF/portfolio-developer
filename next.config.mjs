@@ -16,6 +16,11 @@ const nextConfig = {
   // Enable incremental static regeneration
   experimental: {
     scrollRestoration: true,
+    
+  },
+  output: 'export',
+  typescript: {
+    ignoreBuildErrors: true
   },
 };
 

@@ -14,7 +14,7 @@ import { ErrorBoundary } from "react-error-boundary";
 // This also avoids the componentWillUpdate deprecation warning
 const LottieWrapper = dynamic(() => import('react-lottie').then(mod => {
   const Lottie = mod.default;
-  return (props) => <Lottie {...props} />;
+  return (props: any) => <Lottie {...props} />;
 }), { 
   ssr: false,
   // No loading component to prevent hydration mismatches

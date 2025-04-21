@@ -81,7 +81,7 @@ const GridGlobe = () => {
 };
 
 // Generate reliable data for the globe visualization
-function generateRandomData(colors) {
+function generateRandomData(colors: string[]) {
   try {
     if (!colors || !Array.isArray(colors) || colors.length === 0) {
       // Fallback colors if none provided
@@ -166,7 +166,7 @@ function generateRandomData(colors) {
 }
 
 // Helper function to calculate distance between two points on Earth
-function calculateDistance(lat1, lon1, lat2, lon2) {
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   try {
     const R = 6371e3; // Earth's radius in meters
     const φ1 = lat1 * Math.PI/180;
