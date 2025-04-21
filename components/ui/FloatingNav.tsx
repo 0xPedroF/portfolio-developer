@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { throttle } from "lodash";
 
 export const FloatingNav = ({
   navItems,
@@ -25,15 +26,16 @@ export const FloatingNav = ({
   const [activeSection, setActiveSection] = useState("");
   
   // Update visibility based on scroll
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    if (typeof current === "number") {
-      if (current > 0.05) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    }
-  });
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const height = document.documentElement.scrollHeight - window.innerHeight
+      const current = window.scrollY / height
+      setVisible(current > 0.001) // Show with even the slightest scroll
+    }, 100)
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -100,13 +102,13 @@ export const FloatingNav = ({
         animate={{
           y: 0,
           opacity: 1,
-          backgroundColor: visible ? 'rgba(10, 10, 25, 0.85)' : 'transparent',
+          backgroundColor: visible ? 'rgba(10, 10, 25, 0.85)' : 'rgba(10, 10, 25, 0)',
           backdropFilter: visible ? 'blur(12px)' : 'none',
           boxShadow: visible ? '0 10px 30px -10px rgba(0, 0, 0, 0.3)' : 'none',
         }}
         transition={{
           duration: 0.4,
-          ease: 'easeInOut',
+          ease: [0.22, 1, 0.36, 1], // Smooth curve for better effect
         }}
         className={cn(
           "fixed top-0 left-0 w-full z-[5000] px-6 py-5 flex items-center justify-between border-b transition-all duration-300",

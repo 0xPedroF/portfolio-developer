@@ -187,7 +187,26 @@ export function Globe({ globeConfig, data }: WorldProps) {
           ) === i
       );
 
-      setGlobeData(filteredPoints);
+      // Validate all data points to ensure there are no NaN values
+      const validData = filteredPoints.filter(d => {
+        // Check if any coordinate is NaN or invalid
+        const hasNaN = isNaN(d.lat) || isNaN(d.lng) || isNaN(d.arcAlt);
+        
+        // Check if values are in valid ranges
+        const validLatRange = Math.abs(d.lat) <= 90;
+        const validLngRange = Math.abs(d.lng) <= 180;
+        const validArc = d.arcAlt > 0 && d.arcAlt < 5; // Reasonable arc altitude range
+        
+        return !hasNaN && validLatRange && validLngRange && validArc;
+      });
+
+      if (validData.length === 0) {
+        console.warn("No valid globe data points found after validation");
+        setGlobeData([]);
+        return;
+      }
+
+      setGlobeData(validData);
     } catch (error) {
       console.error('Error building data:', error);
       setGlobeData([]);
@@ -321,9 +340,38 @@ export function WebGLRendererConfig() {
 
   useEffect(() => {
     try {
+      // Add context restoration handling
+      const handleContextLost = (event) => {
+        event.preventDefault();
+        console.log('WebGL context lost - attempting to handle gracefully');
+      };
+      
+      const handleContextRestored = () => {
+        console.log('WebGL context restored');
+        // Reinitialize if needed
+        gl.setPixelRatio(window.devicePixelRatio || 1);
+        gl.setSize(size.width, size.height);
+        gl.setClearColor(0x000000, 0);
+      };
+      
+      // Get the canvas element and add event listeners
+      const canvas = gl.domElement;
+      canvas.addEventListener('webglcontextlost', handleContextLost);
+      canvas.addEventListener('webglcontextrestored', handleContextRestored);
+      
+      // Initial setup
       gl.setPixelRatio(window.devicePixelRatio || 1);
       gl.setSize(size.width, size.height);
       gl.setClearColor(0x000000, 0);
+      
+      // Handle potential power saving modes
+      gl.powerPreference = "high-performance";
+      
+      return () => {
+        // Clean up event listeners on unmount
+        canvas.removeEventListener('webglcontextlost', handleContextLost);
+        canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+      };
     } catch (error) {
       console.error('Error configuring WebGL renderer:', error);
     }
@@ -334,6 +382,7 @@ export function WebGLRendererConfig() {
 
 export function World(props: WorldProps) {
   const { globeConfig } = props;
+  const [hasError, setHasError] = useState(false);
   
   // Create the scene outside of the render function to avoid recreation
   const scene = useMemo(() => {
@@ -343,6 +392,7 @@ export function World(props: WorldProps) {
       return newScene;
     } catch (error) {
       console.error('Error creating scene:', error);
+      setHasError(true);
       return new Scene();
     }
   }, []);
@@ -353,22 +403,46 @@ export function World(props: WorldProps) {
       return new PerspectiveCamera(50, aspect, 180, 1800);
     } catch (error) {
       console.error('Error creating camera:', error);
+      setHasError(true);
       return new PerspectiveCamera(50, 1, 1, 1000);
     }
   }, []);
   
+  // Simple fallback component for errors
+  if (hasError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center rounded-lg bg-purple-500/10 border border-purple-500/20">
+        <span className="text-sm text-white/70">Globe visualization unavailable</span>
+      </div>
+    );
+  }
+  
   return (
-    <ErrorBoundary fallback={<div>Error loading 3D globe</div>}>
+    <ErrorBoundary 
+      fallback={
+        <div className="w-full h-full flex items-center justify-center rounded-lg bg-purple-500/10 border border-purple-500/20">
+          <span className="text-sm text-white/70">Globe visualization unavailable</span>
+        </div>
+      }
+      onError={() => setHasError(true)}
+    >
       <Canvas 
         scene={scene} 
         camera={camera}
         onCreated={({ gl }) => {
           try {
             gl.setClearColor(0x000000, 0);
+            // Set performance hints
+            gl.powerPreference = "high-performance";
+            // Disable depth test for transparent objects
+            gl.clearDepth(1.0);
           } catch (error) {
             console.error('Error on canvas creation:', error);
+            setHasError(true);
           }
         }}
+        // Use pixel ratio of 1 for better performance
+        dpr={[1, 1.5]}
       >
         <WebGLRendererConfig />
         <ambientLight color={globeConfig.ambientLight || "#38bdf8"} intensity={0.6} />

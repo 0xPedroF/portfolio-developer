@@ -1,7 +1,9 @@
+// Metadata file - server component
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import ErrorHandler from "./error-handler";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,13 +51,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ErrorHandler>
             {children}
-          </ThemeProvider>
+          </ErrorHandler>
+        </ThemeProvider>
       </body>
     </html>
   );
