@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "clients": "Clients",
+    "experience": "Experience",
+    "contact": "Contact",
+    "letsTalk": "Let's Talk"
+  },
+  "hero": {
+    "title": "Transforming Concepts into Seamless User Experiences",
+    "subtitle": "Hi! I'm Pedro Ferreira, a Web Developer based in Portugal.",
+    "cta": "Let's get in touch"
+  },
+  "about": {
+    "collaboration": "I prioritize client collaboration, fostering open communication",
+    "flexible": "I'm very flexible with time zone communications",
+    "techStack": "My tech stack",
+    "improving": "I constantly try to improve",
+    "projectTogether": "Do you want to start a project together?"
+  },
+  "projects": {
+    "title": "Recent Projects",
+    "viewAll": "View All"
+  },
+  "clients": {
+    "title": "Client Projects",
+    "viewAll": "View All"
+  },
+  "experience": {
+    "title": "Experience",
+    "viewAll": "View All"
+  },
+  "approach": {
+    "title": "My Approach",
+    "description": "I believe in a methodical approach to development that focuses on clarity, collaboration, and excellence."
+  },
+  "footer": {
+    "subtitle": "Ready to take",
+    "reachOut": "Reach out to me today and let's discuss how I can help you achieve your goals.",
+    "cta": "Let's get in touch",
+    "copyright": "Copyright © 2024 Pedro Ferreira",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "resume": "Download Resume"
+  },
+  "language": {
+    "en": "English",
+    "pt": "Portuguese"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "common": {
+    "viewMore": "View More",
+    "readMore": "Read More",
+    "viewProject": "View Project",
+    "sendMessage": "Send Message",
+    "downloadCV": "Download CV"
+  }
+} 

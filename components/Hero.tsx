@@ -2,9 +2,11 @@ import React, { memo } from "react";
 import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./ui/MagicButton";
 import { FaBriefcase, FaLocationArrow } from "react-icons/fa";
-
+import { useTranslations } from 'next-intl';
 
 const Hero = memo(() => {
+  const t = useTranslations('hero');
+
   return (
     <div className="pb-20 pt-36">
       {/**
@@ -43,11 +45,11 @@ const Hero = memo(() => {
           </p>
 
           <h1 className="text-center text-[40px] md:text-5xl lg:text-6xl dark:text-white text-black leading-snug tracking-wide my-4 font-bold mb-8">
-          Transforming Concepts into Seamless <span className="text-purple">User Experiences</span> 
+            {t('title')}
           </h1>          
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Pedro Ferreira, a Web Developer based in Portugal.
+            {t('subtitle')}
           </p>
 
         <div className="flex gap-6">

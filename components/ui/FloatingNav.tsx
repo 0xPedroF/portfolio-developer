@@ -4,11 +4,12 @@ import {
   motion,
   AnimatePresence,
   useScroll,
-  useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { throttle } from "lodash";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from 'next-intl';
 
 export const FloatingNav = ({
   navItems,
@@ -17,6 +18,7 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
+    translationKey: string;
   }[];
   className?: string;
 }) => {
@@ -24,8 +26,9 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const t = useTranslations('navbar');
   
-  // Update visibility based on scroll
+  // Handle scroll and show navbar
   useEffect(() => {
     const handleScroll = throttle(() => {
       const height = document.documentElement.scrollHeight - window.innerHeight
@@ -127,7 +130,7 @@ export const FloatingNav = ({
         </motion.div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-5">
           {navItems.map((navItem, idx) => {
             const isActive = activeSection === navItem.link.replace('#', '');
             
@@ -142,7 +145,7 @@ export const FloatingNav = ({
                     isActive ? 'text-white' : 'text-white/70 hover:text-white/90'
                   }`}
                 >
-                  {navItem.name}
+                  {t(navItem.translationKey)}
                 </span>
                 {/* Active indicator - using motion for smoother animation */}
                 <motion.span 
@@ -174,16 +177,23 @@ export const FloatingNav = ({
             className="relative py-2 px-4 rounded-lg border border-purple-400/30 text-white/90 text-sm font-medium transition-all duration-300 hover:text-white hover:border-purple-400/70 hover:bg-purple-400/10 ml-2 cursor-pointer group"
           >
             <span className="inline-flex items-center">
-              Let's Talk
+              {t('letsTalk')}
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </span>
           </Link>
+          
+          {/* Language Switcher */}
+          <LanguageSwitcher />
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
+        {/* Mobile Menu Toggle and Language Switcher */}
+        <div className="md:hidden flex items-center gap-3">
+          {/* Mobile Language Switcher */}
+          <LanguageSwitcher />
+          
+          {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="relative w-10 h-10 focus:outline-none"
@@ -239,7 +249,7 @@ export const FloatingNav = ({
                       transition={{ delay: idx * 0.1 }}
                       className="flex items-center"
                     >
-                      {navItem.name}
+                      {t(navItem.translationKey)}
                     </motion.div>
                     
                     {/* Mobile active indicator */}
@@ -260,7 +270,7 @@ export const FloatingNav = ({
                 className="relative mt-4 py-3 px-4 w-full text-center rounded-lg border border-purple-400/30 text-white/90 font-medium transition-all duration-300 hover:text-white hover:border-purple-400/70 hover:bg-purple-400/10 cursor-pointer group"
               >
                 <span className="inline-flex items-center justify-center">
-                  Let's Talk
+                  {t('letsTalk')}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

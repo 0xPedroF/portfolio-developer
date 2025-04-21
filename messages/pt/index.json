@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "clients": "Clientes",
+    "experience": "Experiência",
+    "contact": "Contato",
+    "letsTalk": "Vamos Conversar"
+  },
+  "hero": {
+    "title": "Transformando Conceitos em Experiências de Usuário Perfeitas",
+    "subtitle": "Olá! Sou Pedro Ferreira, Desenvolvedor Web baseado em Portugal.",
+    "cta": "Vamos conversar"
+  },
+  "about": {
+    "collaboration": "Priorizo a colaboração com o cliente, promovendo comunicação aberta",
+    "flexible": "Sou muito flexível com comunicações em diferentes fusos horários",
+    "techStack": "Minha stack tecnológica",
+    "improving": "Busco melhorar constantemente",
+    "projectTogether": "Quer iniciar um projeto juntos?"
+  },
+  "projects": {
+    "title": "Projetos Recentes",
+    "viewAll": "Ver Todos"
+  },
+  "clients": {
+    "title": "Projetos de Clientes",
+    "viewAll": "Ver Todos"
+  },
+  "experience": {
+    "title": "Experiência",
+    "viewAll": "Ver Todos"
+  },
+  "approach": {
+    "title": "Minha Abordagem",
+    "description": "Acredito em uma abordagem metódica de desenvolvimento que se concentra em clareza, colaboração e excelência."
+  },
+  "footer": {
+    "subtitle": "Pronto para elevar",
+    "reachOut": "Entre em contato comigo hoje e vamos discutir como posso ajudá-lo a alcançar seus objetivos.",
+    "cta": "Vamos conversar",
+    "copyright": "Copyright © 2024 Pedro Ferreira",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "resume": "Baixar Currículo"
+  },
+  "language": {
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "contact": "Contato"
+  },
+  "common": {
+    "viewMore": "Ver Mais",
+    "readMore": "Leia Mais",
+    "viewProject": "Ver Projeto",
+    "sendMessage": "Enviar Mensagem",
+    "downloadCV": "Baixar CV"
+  }
+} 
