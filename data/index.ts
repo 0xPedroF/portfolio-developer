@@ -126,7 +126,7 @@ export const projects = [
 export const clientProjects = [
   {
     id: 1,
-    title: "PJ Ferreira - Aluminium & PVC",
+    title: "PJ Ferreira",
     des: "A modern website for PJ Ferreira, specializing in aluminium and PVC products.",
     img: "/scs-pj.svg",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg", "/hostinger.svg"],
@@ -139,6 +139,14 @@ export const clientProjects = [
     img: "/scs-nailsbyjohanna.jpg",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/vite.svg"],
     link: "https://nailsbyjohanna.pedrofdev.com/",
+  },
+  {
+    id: 3,
+    title: "Totogram",
+    des: "Transform everyday photos into breathtaking Ghibli-inspired masterpieces with AI magic. Create stunning artwork that captures emotions.",
+    img: "/scs-totogram.png",
+    iconLists: ["/re.svg", "/vite.svg", "/tail.svg", "/node-js.svg", "/mongodb.svg", "/firebase.svg"],
+    link: "https://totogram.io/",
   },
 ];
 
