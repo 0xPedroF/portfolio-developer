@@ -2,24 +2,22 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
-
-
+import { useTranslations } from 'next-intl';
+import SectionTitle from "./ui/SectionTitle";
 
 const Approach = () => {
+  const t = useTranslations('approach');
+  
   return (
     <section className="w-full py-20">
-      <h1 className="heading">
-        My <span className="text-purple">approach</span>
-      </h1>
+      <SectionTitle namespace="approach" titleKey="title" highlightedWordIndex={1} />
       {/* remove bg-white dark:bg-black */}
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 max-w-full px-4">
         {/* add des prop */}
         <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements."
+          title={t('phase1Title')}
+          icon={<AceternityIcon order={t('phase1')} />}
+          des={t('phase1Description')}
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -28,11 +26,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Progress Update"
-          icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my lofi playlist and dive into
-          coding. From initial sketches to polished code, I keep you updated
-          every step of the way."
+          title={t('phase2Title')}
+          icon={<AceternityIcon order={t('phase2')} />}
+          des={t('phase2Description')}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -50,11 +46,9 @@ const Approach = () => {
           {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
         </Card>
         <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
-          from the ground up."
+          title={t('phase3Title')}
+          icon={<AceternityIcon order={t('phase3')} />}
+          des={t('phase3Description')}
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -88,7 +82,7 @@ const Card = ({
       onMouseLeave={() => setHovered(false)}
       // change h-[30rem] to h-[35rem], add rounded-3xl
       className="border border-black/[0.2] group/canvas-card flex items-center justify-center
-       dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl "
+       dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] lg:max-h-[36rem] xl:max-h-[34rem] 2xl:max-h-[32rem] rounded-3xl "
       style={{
         //   add these two
         //   you can generate the color from here https://cssgradient.io/

@@ -44,7 +44,7 @@ const GridGlobe = () => {
     autoRotateSpeed: 0.5,
   };
   
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const colors = ["#06b6d4", "#3b82f6", "#6366f1", "#f472b6"];
   
   // Render a placeholder during server-side rendering
   // This will be replaced during client-side hydration
@@ -83,13 +83,13 @@ const GridGlobe = () => {
 // Generate reliable data for the globe visualization
 function generateRandomData(colors: string[]) {
   try {
-    if (!colors || !Array.isArray(colors) || colors.length === 0) {
-      // Fallback colors if none provided
-      colors = ["#06b6d4", "#3b82f6", "#6366f1"];
-    }
+    const palette =
+      colors && Array.isArray(colors) && colors.length > 0
+        ? colors
+        : ["#06b6d4", "#3b82f6", "#6366f1", "#f472b6"];
     
     const data = [];
-    const numberOfPoints = Math.floor(Math.random() * 10) + 10; // Between 10-20 points
+    const numberOfRandomPoints = Math.floor(Math.random() * 8) + 8; // Between 8-15 random routes
     
     // Major cities coordinates to use as realistic points
     const majorCities = [
@@ -111,7 +111,35 @@ function generateRandomData(colors: string[]) {
       { lat: 52.52, lng: 13.405 },     // Berlin
     ];
     
-    for (let i = 0; i < numberOfPoints; i++) {
+    // Ensure Portugal (Lisbon) always shows animated activity
+    const portugal = { lat: 38.736946, lng: -9.142685 }; // Lisbon
+    const portugalPartners = [
+      { lat: 40.7128, lng: -74.006 }, // New York
+      { lat: 51.5074, lng: -0.1278 }, // London
+      { lat: -23.5505, lng: -46.6333 }, // São Paulo
+      { lat: 48.8566, lng: 2.3522 }, // Paris
+    ];
+    
+    portugalPartners.forEach((partner, index) => {
+      const distance = calculateDistance(
+        portugal.lat,
+        portugal.lng,
+        partner.lat,
+        partner.lng
+      );
+      
+      data.push({
+        order: index + 1,
+        startLat: portugal.lat,
+        startLng: portugal.lng,
+        endLat: partner.lat,
+        endLng: partner.lng,
+        arcAlt: Math.min(Math.max(distance / 22000, 0.2), 0.65),
+        color: palette[index % palette.length],
+      });
+    });
+    
+    for (let i = 0; i < numberOfRandomPoints; i++) {
       // Get two random cities 
       const startCityIndex = Math.floor(Math.random() * majorCities.length);
       let endCityIndex;
@@ -134,16 +162,16 @@ function generateRandomData(colors: string[]) {
       const arcAlt = Math.min(Math.max(distance / 15000, 0.1), 0.8);
       
       // Get a random color from the colors array
-      const colorIndex = Math.floor(Math.random() * colors.length);
+      const colorIndex = Math.floor(Math.random() * palette.length);
       
       data.push({
-        order: Math.floor(Math.random() * 8) + 1, // Random order between 1-8
+        order: Math.floor(Math.random() * 8) + 10, // Random order between 10-18
         startLat: startCity.lat,
         startLng: startCity.lng,
         endLat: endCity.lat,
         endLng: endCity.lng,
         arcAlt: arcAlt,
-        color: colors[colorIndex],
+        color: palette[colorIndex],
       });
     }
     

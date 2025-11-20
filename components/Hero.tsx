@@ -1,3 +1,4 @@
+"use client";
 import React, { memo } from "react";
 import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./ui/MagicButton";
@@ -41,7 +42,7 @@ const Hero = memo(() => {
       
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic
+            {t('dynamicWebMagic')}
           </p>
 
           <h1 className="text-center text-[40px] md:text-5xl lg:text-6xl dark:text-white text-black leading-snug tracking-wide my-4 font-bold mb-8">
@@ -55,14 +56,14 @@ const Hero = memo(() => {
         <div className="flex gap-6">
           <a href="#about">
             <MagicButton
-              title="Show my skills"
+              translationKey="showSkills"
               icon={<FaLocationArrow />}
               position="right"
             />
           </a>
           <a href="#projects">
             <MagicButton
-              title="Show my work"
+              translationKey="showWork"
               icon={<FaBriefcase />}
               position="right"
               otherClasses="bg-[#00092f]"

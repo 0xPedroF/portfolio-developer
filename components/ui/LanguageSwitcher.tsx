@@ -44,7 +44,7 @@ export default function LanguageSwitcher() {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <span className="mr-1">{locale === 'en' ? '🇬🇧' : '🇧🇷'}</span>
+        <span className="mr-1">{locale === 'en' ? '🇬🇧' : '🇵🇹'}</span>
         <span>{locale.toUpperCase()}</span>
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
@@ -98,7 +98,7 @@ export default function LanguageSwitcher() {
               onClick={() => changeLanguage('pt')}
               className={`flex items-center w-full px-4 py-2 text-sm ${locale === 'pt' ? 'text-purple-400 bg-purple-400/10' : 'text-white/80 hover:bg-purple-400/5'}`}
             >
-              <span className="mr-2">🇧🇷</span>
+              <span className="mr-2">🇵🇹</span>
               <span>{t('pt')}</span>
               {locale === 'pt' && (
                 <svg 

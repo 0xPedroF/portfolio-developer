@@ -9,6 +9,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
 import dynamic from "next/dynamic";
 import { ErrorBoundary } from "react-error-boundary";
+import { useTranslations } from 'next-intl';
 
 // Dynamically import the Lottie component with SSR disabled to prevent hydration issues
 // This also avoids the componentWillUpdate deprecation warning
@@ -30,7 +31,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 md:grid-row-7 gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 mx-auto w-full max-w-full",
         className
       )}
     >
@@ -59,6 +60,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+  const t = useTranslations('common');
   const leftLists = ["ReactJS", "Express", "Typescript"];
   const rightLists = ["Firebase", "NextJS", "MongoDB"];
 
@@ -95,7 +97,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 w-full max-h-full",
         className
       )}
       style={{
@@ -199,7 +201,7 @@ export const BentoGridItem = ({
               </div>
 
               <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
+                translationKey={copied ? 'emailCopied' : 'copyEmail'}
                 icon={<IoCopyOutline />}
                 position="left"
                 handleClick={handleCopy}

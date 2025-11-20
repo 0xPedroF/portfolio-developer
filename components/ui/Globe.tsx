@@ -188,16 +188,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
       );
 
       // Validate all data points to ensure there are no NaN values
-      const validData = filteredPoints.filter(d => {
-        // Check if any coordinate is NaN or invalid
-        const hasNaN = isNaN(d.lat) || isNaN(d.lng) || isNaN(d.arcAlt);
-        
-        // Check if values are in valid ranges
-        const validLatRange = Math.abs(d.lat) <= 90;
-        const validLngRange = Math.abs(d.lng) <= 180;
-        const validArc = d.arcAlt > 0 && d.arcAlt < 5; // Reasonable arc altitude range
-        
-        return !hasNaN && validLatRange && validLngRange && validArc;
+      const validData = filteredPoints.filter((d) => {
+        const latValid =
+          typeof d.lat === "number" && !isNaN(d.lat) && Math.abs(d.lat) <= 90;
+        const lngValid =
+          typeof d.lng === "number" && !isNaN(d.lng) && Math.abs(d.lng) <= 180;
+        return latValid && lngValid;
       });
 
       if (validData.length === 0) {
@@ -341,7 +337,7 @@ export function WebGLRendererConfig() {
   useEffect(() => {
     try {
       // Add context restoration handling
-      const handleContextLost = (event) => {
+      const handleContextLost = (event: Event) => {
         event.preventDefault();
         console.log('WebGL context lost - attempting to handle gracefully');
       };
@@ -363,9 +359,6 @@ export function WebGLRendererConfig() {
       gl.setPixelRatio(window.devicePixelRatio || 1);
       gl.setSize(size.width, size.height);
       gl.setClearColor(0x000000, 0);
-      
-      // Handle potential power saving modes
-      gl.powerPreference = "high-performance";
       
       return () => {
         // Clean up event listeners on unmount
@@ -432,10 +425,8 @@ export function World(props: WorldProps) {
         onCreated={({ gl }) => {
           try {
             gl.setClearColor(0x000000, 0);
-            // Set performance hints
-            gl.powerPreference = "high-performance";
             // Disable depth test for transparent objects
-            gl.clearDepth(1.0);
+            gl.getContext()?.clearDepth(1.0);
           } catch (error) {
             console.error('Error on canvas creation:', error);
             setHasError(true);

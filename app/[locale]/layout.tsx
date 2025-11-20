@@ -5,6 +5,7 @@ import { locales } from '../i18n/request';
 import { ThemeProvider } from '../provider';
 import ErrorHandler from '../error-handler';
 import localFont from "next/font/local";
+import type { Metadata } from "next";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -20,6 +21,36 @@ const geistMono = localFont({
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }));
 }
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://pedrofdev.com"),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://pedrofdev.com",
+    title: "Pedro F. | Software Developer Portfolio",
+    description: "A skilled software developer with expertise in React, Next.js, Java and TypeScript.",
+    siteName: "Pedro Ferreira Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pedro Ferreira - Software Developer Portfolio",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pedro F. | Software Developer Portfolio",
+    description: "A skilled software developer with expertise in React, Next.js, Java and TypeScript.",
+    images: ["/og-image.jpg"],
+  },
+};
 
 export default async function LocaleLayout({
   children,
@@ -47,7 +78,12 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider 
+            locale={locale} 
+            messages={messages}
+            timeZone="Europe/Lisbon"
+            now={new Date()}
+          >
             <ErrorHandler>
               {children}
             </ErrorHandler>

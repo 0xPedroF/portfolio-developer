@@ -1,69 +1,68 @@
+"use client";
 import { projects } from "@/data";
 import React from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
+import { useTranslations } from 'next-intl';
+import SectionTitle from "./ui/SectionTitle";
+import CardPreview from "./ui/CardPreview";
 
 const RecentProjects = () => {
+  const t = useTranslations('projects');
+  const commonT = useTranslations('common');
+  
   return (
     <div className="py-20" id="projects">
-      <h1 className="heading">
-        A small selection of my{" "}
-        <span className="text-purple">recent projects</span>
-      </h1>
+      <SectionTitle namespace="projects" titleKey="title" highlightedWordIndex={1} />
 
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-3 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-5 p-4 mt-10 max-w-7xl mx-auto">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div
             key={id}
-            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
+            className="w-full h-[40rem] sm:h-[42rem] md:h-[44rem] lg:h-[46rem] xl:h-[48rem] 2xl:h-[50rem] flex items-center justify-center"
           >
             <PinContainer title={title} href={link}>
-              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
-                <div
-                  className="relative w-full h-full overflow-hidden lg:rounded-3xl"
-                  style={{ backgroundColor: "#13162D" }}
-                >
-                  <img src="/bg.png" alt="Background" className="w-full h-full object-cover" />
-                </div>
-                <img src={img} alt={title} className="z-10 absolute bottom-0 max-w-full h-auto" />
-              </div>
+              <div className="flex flex-col gap-5 sm:gap-6">
+                <CardPreview title={title} img={img} />
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                <h1 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl line-clamp-1">
                 {title}
               </h1>
 
               <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
-                style={{ color: "#BEC1DD", margin: "1vh 0" }}
+                className="text-sm sm:text-base md:text-lg font-light text-white/70 line-clamp-3"
+                style={{ color: "#BEC1DD", margin: "0.5rem 0" }}
               >
                 {des}
               </p>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
+              <div className="flex items-center justify-between mt-2 sm:mt-3 md:mt-4 lg:mt-5 mb-2 sm:mb-3">
                 <div className="flex items-center">
                   {iconLists.map((icon, index) => (
                     <div
                       key={index}
-                      className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                      className="border border-white/[0.2] rounded-full bg-black w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 flex justify-center items-center"
                       style={{
-                        transform: `translateX(-${5 * index + 2}px)`,
+                        transform: `translateX(-${4 * index + 1}px)`,
                       }}
                     >
-                      <img src={icon} alt={`Technology icon ${index + 1}`} className="p-2" />
+                      <img src={icon} alt={`Technology icon ${index + 1}`} className="p-1 sm:p-1.5 md:p-2" />
                     </div>
                   ))}
                 </div>
 
                 <div className="flex justify-center items-center">
                   <a 
-                    className="flex lg:text-xl md:text-xs text-sm text-purple border border-purple rounded-full px-4 py-2 transition-all duration-300 hover:bg-purple hover:text-white group" 
+                    className="flex text-sm sm:text-base md:text-lg text-purple border border-purple rounded-full px-3 py-1.5 sm:px-4 sm:py-2 transition-all duration-300 hover:bg-purple hover:text-white group" 
                     href={link} 
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Check Live Site
-                    <FaLocationArrow className="ms-2 group-hover:translate-x-1 transition-transform duration-300" color="#CBACF9" />
+                    {commonT('viewProject')}
+                    <FaLocationArrow className="ms-1 sm:ms-2 group-hover:translate-x-1 transition-transform duration-300" color="#CBACF9" />
                   </a>
                 </div>
+              </div>
               </div>
             </PinContainer>
           </div>

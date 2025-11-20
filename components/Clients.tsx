@@ -1,18 +1,15 @@
 "use client";
-
 import React from "react";
-
 import { companies, testimonials } from "@/data";
 import { InfiniteMovingCards } from "./ui/InfiniteCards";
-
+import { useTranslations } from 'next-intl';
 
 const Clients = () => {
+  const t = useTranslations('clients');
+  
   return (
     <section id="testimonials" className="py-20">
-     {/*  <h1 className="heading">
-        Kind words from
-        <span className="text-purple"> satisfied clients</span>
-      </h1>*/}
+     {/*  <h1 className="heading" dangerouslySetInnerHTML={{ __html: t.raw('testimonialsHTML') }} />*/}
 
       <div className="flex flex-col items-center max-lg:mt-10">
         {/* Remove comment to enable testimonials slider

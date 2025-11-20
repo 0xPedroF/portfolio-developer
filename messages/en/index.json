@@ -10,36 +10,81 @@
   "hero": {
     "title": "Transforming Concepts into Seamless User Experiences",
     "subtitle": "Hi! I'm Pedro Ferreira, a Web Developer based in Portugal.",
-    "cta": "Let's get in touch"
+    "cta": "Let's get in touch",
+    "dynamicWebMagic": "Product-grade engineering"
   },
   "about": {
-    "collaboration": "I prioritize client collaboration, fostering open communication",
-    "flexible": "I'm very flexible with time zone communications",
+    "title": "About Me",
+    "collaboration": "I prioritize client collaboration, fostering open communication and alignment on goals",
+    "flexible": "Comfortable leading cross-time-zone communications",
     "techStack": "My tech stack",
     "improving": "I constantly try to improve",
-    "projectTogether": "Do you want to start a project together?"
+    "projectTogether": "Need a hands-on engineer who ships and stays for maintenance?",
+    "techEnthusiast": "Tech enthusiast with passion for development",
+    "buildingLibrary": "Currently running Catalysing IT"
   },
   "projects": {
     "title": "Recent Projects",
-    "viewAll": "View All"
+    "titleHTML": "A small selection of my <span class=\"text-purple\">recent projects</span>",
+    "viewAll": "View All",
+    "recentText": "Recent",
+    "projectsText": "Projects"
   },
   "clients": {
     "title": "Client Projects",
-    "viewAll": "View All"
+    "titleHTML": "Projects I've Developed for <span class=\"text-purple\">Clients</span>",
+    "testimonialsHTML": "Kind words from <span class=\"text-purple\">satisfied clients</span>",
+    "viewAll": "View All",
+    "clientText": "Client",
+    "projectsText": "Projects"
   },
   "experience": {
-    "title": "Experience",
-    "viewAll": "View All"
+    "title": "My work experience",
+    "titleHTML": "My <span class=\"text-purple\">work experience</span>",
+    "viewAll": "View All",
+    "connectWith": "Connect with me on",
+    "socialMedia": "social media",
+    "checkOutWork": "Check out my work, connect professionally, or download my resume to learn more about my experience",
+    "job1": {
+      "title": "Full-Stack Engineer",
+      "desc": "Delivering high-traffic experiences with React, Next.js, Java, and CI/CD pipelines focused on performance, security, and maintainability."
+    },
+    "job2": {
+      "title": "Founder & Software Engineer · Catalysing IT",
+      "desc": "Leading end-to-end product work for SMEs—from discovery to architecture, UI/UX, automation, deployment, and long-term technical partnership."
+    },
+    "job3": {
+      "title": "Digital Operations Lead",
+      "desc": "Digitized inventory and marketing workflows with custom software, blending technical delivery with day-to-day operational leadership."
+    },
+    "job4": {
+    "title": "Freelance Web Developer · pedrofdev.com",
+    "desc": "Building marketing sites, dashboards, and APIs with modern stacks, analytics, and integrations that boost clients' businesses."
+    }
   },
   "approach": {
-    "title": "My Approach",
-    "description": "I believe in a methodical approach to development that focuses on clarity, collaboration, and excellence."
+    "title": "My approach",
+    "titleHTML": "My <span class=\"text-purple\">approach</span>",
+    "description": "I believe in a methodical approach to development that focuses on clarity, collaboration, and excellence.",
+    "phase1": "Phase 1",
+    "phase1Title": "Planning & Strategy",
+    "phase1Description": "We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements.",
+    "phase2": "Phase 2",
+    "phase2Title": "Development & Progress Update",
+    "phase2Description": "Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way.",
+    "phase3": "Phase 3",
+    "phase3Title": "Development & Launch",
+    "phase3Description": "This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up."
   },
   "footer": {
+    "title": "Ready to take your digital presence to the next level?",
     "subtitle": "Ready to take",
+    "your": "your",
+    "digital": "digital presence to the next level?",
+    "titleHTML": "Ready to take <span class=\"text-purple\">your</span> digital presence to the next level?",
     "reachOut": "Reach out to me today and let's discuss how I can help you achieve your goals.",
     "cta": "Let's get in touch",
-    "copyright": "Copyright © 2024 Pedro Ferreira",
+    "copyright": "Copyright © 2025 Pedro Ferreira. All rights reserved.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "resume": "Download Resume"
@@ -60,6 +105,10 @@
     "readMore": "Read More",
     "viewProject": "View Project",
     "sendMessage": "Send Message",
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "showSkills": "Show my skills",
+    "showWork": "Show my work",
+    "copyEmail": "Copy my email address",
+    "emailCopied": "Email is Copied!"
   }
 } 

@@ -97,6 +97,14 @@ export const FloatingNav = ({
     setMobileMenuOpen(false);
   };
 
+  // Scroll to top smoothly
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       {/* Desktop and Mobile Navbar */}
@@ -124,7 +132,8 @@ export const FloatingNav = ({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-xl font-bold text-white"
+          className="text-xl font-bold text-white cursor-pointer"
+          onClick={scrollToTop}
         >
           Pedro<span className="text-purple-400">Ferreira</span>
         </motion.div>

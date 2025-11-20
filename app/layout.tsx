@@ -1,64 +1,13 @@
-// Metadata file - server component
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+// Root layout - required by Next.js
+// For static export with next-intl, the locale layout handles the actual HTML structure
 import "./globals.css";
-import { ThemeProvider } from "./provider";
-import ErrorHandler from "./error-handler";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export const metadata: Metadata = {
-  title: "Pedro F. | Web Developer Portfolio",
-  description: "A skilled software developer with expertise in React, Next.js, Java and TypeScript.",
-  keywords: [
-    "Pedro Ferreira",
-    "Software Developer",
-    "Developer",
-    "web development",
-    "next.js",
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "Frontend",
-    "Full-stack",
-  ],
-  icons: [
-    {
-      rel: "icon",
-      url: "/favicon.png",
-      type: "image/png",
-    }
-  ],
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ErrorHandler>
-            {children}
-          </ErrorHandler>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  // For static export with locale routing, children from [locale]/layout already includes html/body
+  // This root layout is required by Next.js but may not render in final output
+  return children;
 }

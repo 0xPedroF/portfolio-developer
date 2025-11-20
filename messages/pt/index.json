@@ -4,45 +4,90 @@
     "projects": "Projetos",
     "clients": "Clientes",
     "experience": "Experiência",
-    "contact": "Contato",
+    "contact": "Contacto",
     "letsTalk": "Vamos Conversar"
   },
   "hero": {
-    "title": "Transformando Conceitos em Experiências de Usuário Perfeitas",
-    "subtitle": "Olá! Sou Pedro Ferreira, Desenvolvedor Web baseado em Portugal.",
-    "cta": "Vamos conversar"
+    "title": "Transformando Conceitos em Experiências de Utilizador Perfeitas",
+    "subtitle": "Olá! Sou Pedro Ferreira, um Desenvolvedor de Software baseado em Portugal.",
+    "cta": "Vamos conversar",
+    "dynamicWebMagic": "Engenharia orientada a produto"
   },
   "about": {
-    "collaboration": "Priorizo a colaboração com o cliente, promovendo comunicação aberta",
-    "flexible": "Sou muito flexível com comunicações em diferentes fusos horários",
-    "techStack": "Minha stack tecnológica",
-    "improving": "Busco melhorar constantemente",
-    "projectTogether": "Quer iniciar um projeto juntos?"
+    "title": "Sobre Mim",
+    "collaboration": "Priorizo a colaboração com o cliente, promovendo comunicação aberta e alinhamento nos objetivos.",
+    "flexible": "Confortável em liderar comunicações em diferentes fusos horários.",
+    "techStack": "A minha stack tecnológica",
+    "improving": "Procuro melhorar constantemente.",
+    "projectTogether": "Precisa de um engenheiro presente no lançamento e na manutenção?",
+    "techEnthusiast": "Entusiasta de tecnologia com paixão pelo desenvolvimento.",
+    "buildingLibrary": "Atualmente a liderar a Catalysing IT."
   },
   "projects": {
     "title": "Projetos Recentes",
-    "viewAll": "Ver Todos"
+    "titleHTML": "Uma pequena seleção dos meus <span class=\"text-purple\">projetos recentes</span>",
+    "viewAll": "Ver Todos",
+    "recentText": "Projetos",
+    "projectsText": "Recentes"
   },
   "clients": {
     "title": "Projetos de Clientes",
-    "viewAll": "Ver Todos"
+    "titleHTML": "Projetos que desenvolvi para <span class=\"text-purple\">Clientes</span>",
+    "testimonialsHTML": "Palavras gentis de <span class=\"text-purple\">clientes satisfeitos</span>",
+    "viewAll": "Ver Todos",
+    "clientText": "Projetos de",
+    "projectsText": "Clientes"
   },
   "experience": {
-    "title": "Experiência",
-    "viewAll": "Ver Todos"
+    "title": "Minha experiência profissional",
+    "titleHTML": "Minha <span class=\"text-purple\">experiência profissional</span>",
+    "viewAll": "Ver Todos",
+    "connectWith": "Conecte-se comigo nas",
+    "socialMedia": "redes sociais",
+    "checkOutWork": "Confira o meu trabalho, conecte-se profissionalmente ou descarregue o meu currículo para saber mais sobre a minha experiência",
+    "job1": {
+      "title": "Engenheiro Full-Stack",
+      "desc": "Entrego experiências de grande tráfego com React, Next.js, Java e pipelines CI/CD focados em performance, segurança e manutenção."
+    },
+    "job2": {
+      "title": "Founder & Software Engineer · Catalysing IT",
+      "desc": "Lidero produtos ponta a ponta para PMEs — discovery, arquitetura, UI/UX, automação, deployment e parceria técnica contínua."
+    },
+    "job3": {
+      "title": "Digital Operations Lead",
+      "desc": "Digitalizei inventário e marketing com software personalizado, conciliando entrega técnica com liderança operacional diária."
+    },
+    "job4": {
+      "title": "Web Developer Freelance · pedrofdev.com",
+      "desc": "Construo sites, dashboards e APIs com stacks modernos, analytics e integrações que impulsionam os negócios dos clientes."
+    }
   },
   "approach": {
-    "title": "Minha Abordagem",
-    "description": "Acredito em uma abordagem metódica de desenvolvimento que se concentra em clareza, colaboração e excelência."
+    "title": "Minha abordagem",
+    "titleHTML": "Minha <span class=\"text-purple\">abordagem</span>",
+    "description": "Acredito numa abordagem metódica de desenvolvimento que se concentra em clareza, colaboração e excelência.",
+    "phase1": "Fase 1",
+    "phase1Title": "Planeamento e Estratégia",
+    "phase1Description": "Colaboraremos para mapear os objetivos do seu site, público-alvo e funcionalidades principais. Discutiremos aspetos como estrutura do site, navegação e requisitos de conteúdo.",
+    "phase2": "Fase 2",
+    "phase2Title": "Desenvolvimento e Atualizações de Progresso",
+    "phase2Description": "Uma vez que concordamos com o plano, coloco a minha playlist lofi e mergulho na codificação. Dos esboços iniciais ao código polido, mantenho-o atualizado em cada etapa do caminho.",
+    "phase3": "Fase 3",
+    "phase3Title": "Desenvolvimento e Lançamento",
+    "phase3Description": "É aqui que a magia acontece! Com base no design aprovado, traduzirei tudo em código funcional, construindo o seu site de raiz."
   },
   "footer": {
+    "title": "Pronto para elevar a sua presença digital para o próximo nível?",
     "subtitle": "Pronto para elevar",
-    "reachOut": "Entre em contato comigo hoje e vamos discutir como posso ajudá-lo a alcançar seus objetivos.",
+    "your": "a sua",
+    "digital": "presença digital para o próximo nível?",
+    "titleHTML": "Pronto para elevar <span class=\"text-purple\">a sua</span> presença digital para o próximo nível?",
+    "reachOut": "Entre em contacto comigo hoje e vamos discutir como posso ajudá-lo a alcançar os seus objetivos.",
     "cta": "Vamos conversar",
-    "copyright": "Copyright © 2024 Pedro Ferreira",
+    "copyright": "Copyright © 2025 Pedro Ferreira. Todos os direitos reservados.",
     "github": "GitHub",
     "linkedin": "LinkedIn",
-    "resume": "Baixar Currículo"
+    "resume": "Descarregar Currículo"
   },
   "language": {
     "en": "Inglês",
@@ -52,14 +97,18 @@
     "home": "Início",
     "about": "Sobre",
     "projects": "Projetos",
-    "skills": "Habilidades",
-    "contact": "Contato"
+    "skills": "Competências",
+    "contact": "Contacto"
   },
   "common": {
     "viewMore": "Ver Mais",
-    "readMore": "Leia Mais",
+    "readMore": "Ler Mais",
     "viewProject": "Ver Projeto",
     "sendMessage": "Enviar Mensagem",
-    "downloadCV": "Baixar CV"
+    "downloadCV": "Descarregar CV",
+    "showSkills": "Ver as minhas competências",
+    "showWork": "Ver o meu trabalho",
+    "copyEmail": "Copiar o meu email",
+    "emailCopied": "Email Copiado!"
   }
 } 
