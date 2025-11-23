@@ -1,82 +1,109 @@
-"use client";
+﻿"use client";
 import React, { memo } from "react";
-import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./ui/MagicButton";
-import { FaBriefcase, FaLocationArrow } from "react-icons/fa";
-import { useTranslations } from 'next-intl';
+import { FaBriefcase, FaLocationArrow, FaRocket, FaCog, FaHeart } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+import GlitchText from "./ui/GlitchText";
 
 const Hero = memo(() => {
-  const t = useTranslations('hero');
+  const t = useTranslations("hero");
+
+  const highlights = [
+    {
+      icon: <FaRocket className="text-2xl text-emerald-400" />,
+      title: t("highlights.discovery.title"),
+      description: t("highlights.discovery.description"),
+    },
+    {
+      icon: <FaCog className="text-2xl text-cyan-400" />,
+      title: t("highlights.delivery.title"),
+      description: t("highlights.delivery.description"),
+    },
+    {
+      icon: <FaHeart className="text-2xl text-pink-400" />,
+      title: t("highlights.care.title"),
+      description: t("highlights.care.description"),
+    },
+  ];
 
   return (
-    <div className="pb-20 pt-36">
-      {/**
-       *  UI: Spotlights
-       *  Link: https://ui.aceternity.com/components/spotlight
-       */}
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        {/* Reduce the number of Spotlights for better performance */}
-        <Spotlight
-          className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
-        />
+    <section className="relative w-full pb-24 pt-28" id="home">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-5 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_rgba(99,102,241,0.35),_transparent_65%)] blur-3xl" />
+        <div className="absolute inset-x-10 top-1/2 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
       </div>
 
-      {/* UI: grid, reduce grid color from 0.2 to 0.03 */}
-      <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        {/* Radial gradient for the container to give a faded look */}
-        <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
-
-      <div className="flex justify-center relative my-20 z-10">
-      
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            {t('dynamicWebMagic')}
-          </p>
-
-          <h1 className="text-center text-[40px] md:text-5xl lg:text-6xl dark:text-white text-black leading-snug tracking-wide my-4 font-bold mb-8">
-            {t('title')}
-          </h1>          
-
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            {t('subtitle')}
-          </p>
-
-        <div className="flex gap-6">
-          <a href="#about">
-            <MagicButton
-              translationKey="showSkills"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
-          <a href="#projects">
-            <MagicButton
-              translationKey="showWork"
-              icon={<FaBriefcase />}
-              position="right"
-              otherClasses="bg-[#00092f]"
-            />
-          </a>
+      <div className="section-shell overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="grid-overlay" />
         </div>
-          
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent opacity-50" />
+        <div className="relative grid gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1.05fr)_0.9fr]">
+          <div className="space-y-5">
+            <div className="space-y-3">
+              <span className="glass-chip">{t("productTagline")}</span>
+            </div>
 
-        
+            <div className="space-y-3">
+              <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                {t("title")}
+              </h1>
+              <p className="text-base text-white/80 sm:text-lg lg:text-xl">{t("subtitle")}</p>
+              <p className="text-sm text-white/60 sm:text-base">{t("location")}</p>
+            </div>
 
+            <div className="flex flex-wrap gap-3 pt-4">
+              <a href="#contact" className="w-full sm:w-auto">
+                <MagicButton
+                  translationKey="cta"
+                  translationNamespace="footer"
+                  icon={<FaLocationArrow />}
+                  position="right"
+                />
+              </a>
+              <a href="#projects" className="w-full sm:w-auto">
+                <MagicButton
+                  translationKey="showWork"
+                  icon={<FaBriefcase />}
+                  position="right"
+                  otherClasses="bg-gradient-to-r from-indigo-600/90 via-purple-600/90 to-violet-500/90"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative flex items-center justify-center">
+            <div className="relative aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-[34px] border border-white/10 bg-gradient-to-b from-white/10 via-transparent to-white/5 p-6 shadow-[0_20px_80px_rgba(5,7,14,0.6)] backdrop-blur-2xl">
+              <div className="absolute -left-10 top-10 h-48 w-48 rounded-full bg-purple-500/20 blur-3xl" />
+              <div className="absolute right-0 bottom-0 h-40 w-40 translate-x-1/3 translate-y-1/3 rounded-full bg-cyan-400/20 blur-3xl" />
+              <div className="relative z-10 flex h-full flex-col justify-between gap-4">
+                <div className="space-y-3 rounded-2xl border border-white/10 bg-black/50 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl relative overflow-hidden">
+                  <p className="text-xs uppercase tracking-[0.4em] text-emerald-200">
+                    <GlitchText text={t("dynamicWebMagic")} glitchInterval={4000} />
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  {highlights.map((highlight) => (
+                    <div
+                      key={highlight.title}
+                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <div className="flex-shrink-0 mt-0.5">{highlight.icon}</div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-white text-sm mb-1">{highlight.title}</p>
+                        <p className="text-xs leading-relaxed text-white/70">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

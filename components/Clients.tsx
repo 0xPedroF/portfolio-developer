@@ -1,43 +1,62 @@
-"use client";
+﻿"use client";
 import React from "react";
-import { companies, testimonials } from "@/data";
-import { InfiniteMovingCards } from "./ui/InfiniteCards";
-import { useTranslations } from 'next-intl';
+import { companies, projects, clientProjects } from "@/data";
+import { useTranslations } from "next-intl";
+import SectionTitle from "./ui/SectionTitle";
+
+const techIconSet = Array.from(
+  new Set([
+    ...projects.flatMap((project) => project.iconLists ?? []),
+    ...clientProjects.flatMap((project) => project.iconLists ?? []),
+  ])
+).filter(Boolean) as string[];
+
+const formatAlt = (path: string) =>
+  (path.split("/").pop() || "brand")
+    .replace(".svg", "")
+    .replace(/[-_]/g, " ")
+    .toUpperCase();
+
+const brandLogos = [
+  ...companies.map((company) => ({
+    id: `company-${company.id}`,
+    img: company.img,
+    alt: company.name,
+  })),
+  ...techIconSet.map((icon, index) => ({
+    id: `tech-${index}`,
+    img: icon,
+    alt: formatAlt(icon),
+  })),
+];
 
 const Clients = () => {
-  const t = useTranslations('clients');
-  
+  const experienceT = useTranslations("experience");
+
   return (
-    <section id="testimonials" className="py-20">
-     {/*  <h1 className="heading" dangerouslySetInnerHTML={{ __html: t.raw('testimonialsHTML') }} />*/}
-
-      <div className="flex flex-col items-center max-lg:mt-10">
-        {/* Remove comment to enable testimonials slider
-          <InfiniteMovingCards
-            items={testimonials}
-            direction="right"
-            speed="slow"
-          />
-        */}
-
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
-          {companies.map((company) => (
-            <React.Fragment key={company.id}>
-              <div className="flex md:max-w-60 max-w-32 gap-2">
-                <img
-                  src={company.img}
-                  alt={company.name}
-                  className="md:w-10 w-5"
-                />
-                <img
-                  src={company.nameImg}
-                  alt={company.name}
-                  width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-24 w-20"
-                />
+    <section id="testimonials" className="relative w-full py-16">
+      <div className="section-shell">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-8 sm:p-10 lg:p-12 shadow-[0_25px_70px_rgba(2,6,23,0.55)] backdrop-blur-2xl">
+          <div className="flex min-w-max items-center gap-8 sm:gap-12 lg:gap-16 marquee-track-slow py-2">
+            {[...brandLogos, ...brandLogos].map((brand) => (
+              <div
+                key={`${brand.id}-primary`}
+                className="flex h-20 w-36 sm:h-24 sm:w-40 items-center justify-center rounded-xl border border-white/10 bg-black/30 px-5 sm:px-6 py-3 sm:py-4"
+              >
+                <img src={brand.img} alt={brand.alt} className="h-10 w-auto sm:h-12 opacity-80" />
               </div>
-            </React.Fragment>
-          ))}
+            ))}
+          </div>
+          <div className="flex min-w-max items-center gap-8 sm:gap-12 lg:gap-16 marquee-track-slow py-2" aria-hidden="true" style={{ animationDelay: "-19s" }}>
+            {[...brandLogos, ...brandLogos].map((brand) => (
+              <div
+                key={`${brand.id}-secondary`}
+                className="flex h-20 w-36 sm:h-24 sm:w-40 items-center justify-center rounded-xl border border-white/10 bg-black/30 px-5 sm:px-6 py-3 sm:py-4"
+              >
+                <img src={brand.img} alt={brand.alt} className="h-10 w-auto sm:h-12 opacity-80" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

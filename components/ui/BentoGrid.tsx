@@ -92,21 +92,25 @@ export const BentoGridItem = ({
     const text = "contact@pedrofdev.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
+    
+    // Reset the copied state after 3 seconds
+    setTimeout(() => {
+      setCopied(false);
+      setShowLottie(false);
+    }, 3000);
   };
 
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 w-full max-h-full",
+        "row-span-1 relative flex w-full flex-col justify-between overflow-hidden rounded-[28px] border border-white/10 bg-[rgba(6,9,24,0.85)] p-6 shadow-[0_20px_45px_rgba(2,6,23,0.55)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_35px_90px_rgba(2,6,23,0.65)]",
         className
       )}
-      style={{
-        // generate the color from here https://cssgradient.io/
-        background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-      }}
     >
+      <div className="pointer-events-none absolute inset-0 opacity-40">
+        <div className="grid-overlay" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/0" />
       {/* add img divs */}
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
@@ -139,14 +143,14 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+            "relative z-10 flex min-h-40 flex-col gap-3 rounded-[20px] border border-white/5 bg-black/20 p-5 md:h-full lg:p-8 group-hover/bento:border-white/15 overflow-visible"
           )}
         >
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+          <div className="font-sans text-sm font-light text-white/70 md:max-w-48 md:text-sm lg:text-base relative z-10">
             {description}
           </div>
           <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
+            className="font-sans text-2xl font-semibold text-white lg:text-3xl relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
           >
             {title}
           </div>
@@ -160,27 +164,25 @@ export const BentoGridItem = ({
 
           {/* Tech stack list div */}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-1">
+            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-1 z-0">
               {/* tech stack lists */}
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="rounded-xl bg-white/[0.02] backdrop-blur-sm border border-white/5 px-3 py-2 text-xs text-white/90 shadow-[0_4px_12px_rgba(2,6,23,0.3)] lg:px-4 lg:py-3 lg:text-base transition-all duration-300 hover:bg-white/[0.04] hover:border-white/10"
                   >
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
+                <span className="rounded-xl bg-white/[0.02] border border-white/5 px-3 py-4 text-center text-transparent lg:px-4" />
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]"></span>
+                <span className="rounded-xl bg-white/[0.02] border border-white/5 px-3 py-4 text-center text-transparent lg:px-4" />
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="rounded-xl bg-white/[0.02] backdrop-blur-sm border border-white/5 px-3 py-2 text-xs text-white/90 shadow-[0_4px_12px_rgba(2,6,23,0.3)] lg:px-4 lg:py-3 lg:text-base transition-all duration-300 hover:bg-white/[0.04] hover:border-white/10"
                   >
                     {item}
                   </span>
@@ -189,24 +191,28 @@ export const BentoGridItem = ({
             </div>
           )}
           {id === 6 && (
-            <div className="mt-5 relative">
-              {/* button border magic from tailwind css buttons  */}
+            <div className="mt-6 sm:mt-8 relative z-50">
+              {/* Serpentine animation - appears when email is copied */}
               <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "hidden"}`}
+                className={`absolute -bottom-5 -right-5 z-40 ${copied ? "block" : "hidden"}`}
               >
                 {/* Only render Lottie component client-side when it should be shown */}
                 {isMounted && showLottie && (
-                  <LottieWrapper options={defaultOptions} height={200} width={400} />
+                  <ErrorBoundary fallbackRender={() => <div />}>
+                    <LottieWrapper options={defaultOptions} height={200} width={400} />
+                  </ErrorBoundary>
                 )}
               </div>
 
-              <MagicButton
-                translationKey={copied ? 'emailCopied' : 'copyEmail'}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
+              <div className="relative z-50">
+                <MagicButton
+                  translationKey={copied ? 'emailCopied' : 'copyEmail'}
+                  icon={<IoCopyOutline />}
+                  position="left"
+                  handleClick={handleCopy}
+                  otherClasses="!bg-slate-900/90 !backdrop-blur-xl !border-white/20 hover:!border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+                />
+              </div>
             </div>
           )}
         </div>

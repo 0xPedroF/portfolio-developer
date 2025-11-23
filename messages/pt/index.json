@@ -9,9 +9,24 @@
   },
   "hero": {
     "title": "Transformando Conceitos em Experiências de Utilizador Perfeitas",
-    "subtitle": "Olá! Sou Pedro Ferreira, um Desenvolvedor de Software baseado em Portugal.",
-    "cta": "Vamos conversar",
-    "dynamicWebMagic": "Engenharia orientada a produto"
+    "subtitle": "Engenharia full-stack para SaaS, dashboards e experiências digitais.",
+    "location": "Olá! Sou Pedro Ferreira, um Desenvolvedor baseado em Portugal.",
+    "productTagline": "Construindo produtos web modernos que escalam",
+    "dynamicWebMagic": "Parceiro de engenharia full-stack",
+    "highlights": {
+      "discovery": {
+        "title": "Liderança de produto fracionada",
+        "description": "Discovery, UX e roadmaps com alguém que também programa."
+      },
+      "delivery": {
+        "title": "Entrega full-stack",
+        "description": "Next.js, Node, Java e infraestrutura prontos para produção."
+      },
+      "care": {
+        "title": "Suporte pós-lançamento",
+        "description": "Monitorização, iterações e planos de manutenção contínua."
+      }
+    }
   },
   "about": {
     "title": "Sobre Mim",
@@ -19,7 +34,7 @@
     "flexible": "Confortável em liderar comunicações em diferentes fusos horários.",
     "techStack": "A minha stack tecnológica",
     "improving": "Procuro melhorar constantemente.",
-    "projectTogether": "Precisa de um engenheiro presente no lançamento e na manutenção?",
+    "projectTogether": "Pronto para começar um projeto?",
     "techEnthusiast": "Entusiasta de tecnologia com paixão pelo desenvolvimento.",
     "buildingLibrary": "Atualmente a liderar a Catalysing IT."
   },
@@ -110,5 +125,11 @@
     "showWork": "Ver o meu trabalho",
     "copyEmail": "Copiar o meu email",
     "emailCopied": "Email Copiado!"
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Página Não Encontrada",
+    "description": "A página que procura não existe ou foi movida.",
+    "backHome": "Voltar ao Início"
   }
 } 

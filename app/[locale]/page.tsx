@@ -28,8 +28,13 @@ export default function Home() {
   
   return (
     <>
-      <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
-        <div className="max-w-7xl w-full">
+      <main className="relative isolate flex min-h-screen w-full flex-col items-center overflow-hidden bg-transparent px-4 pb-24 pt-10 sm:px-8 md:px-10 lg:px-12">
+        <div className="pointer-events-none absolute -top-64 right-[-10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-purple-500/30 via-indigo-500/20 to-transparent blur-[140px]" />
+        <div className="pointer-events-none absolute top-32 left-[-20%] h-[420px] w-[420px] rounded-full bg-gradient-to-br from-sky-400/25 via-cyan-500/10 to-transparent blur-[120px]" />
+        <div className="pointer-events-none absolute inset-0 opacity-50">
+          <div className="grid-overlay" />
+        </div>
+        <div className="relative z-10 w-full max-w-6xl xl:max-w-7xl">
           <FloatingNav navItems={navItems} />
           <Hero />
           <Grid />

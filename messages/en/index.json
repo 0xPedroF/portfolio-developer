@@ -9,9 +9,24 @@
   },
   "hero": {
     "title": "Transforming Concepts into Seamless User Experiences",
-    "subtitle": "Hi! I'm Pedro Ferreira, a Web Developer based in Portugal.",
-    "cta": "Let's get in touch",
-    "dynamicWebMagic": "Product-grade engineering"
+    "subtitle": "Full-stack product engineering for SaaS, dashboards, and marketing experiences.",
+    "location": "Hi! I'm Pedro Ferreira, a Developer based in Portugal.",
+    "productTagline": "Building modern web products that scale",
+    "dynamicWebMagic": "Full-stack engineering partner",
+    "highlights": {
+      "discovery": {
+        "title": "Fractional product leadership",
+        "description": "Run discovery, UX, and roadmaps with someone who also codes."
+      },
+      "delivery": {
+        "title": "Full-stack delivery",
+        "description": "Next.js, Node, Java and cloud infrastructure ready for production."
+      },
+      "care": {
+        "title": "Post-launch care",
+        "description": "Monitoring, iterations, and retainers that keep releases healthy."
+      }
+    }
   },
   "about": {
     "title": "About Me",
@@ -19,7 +34,7 @@
     "flexible": "Comfortable leading cross-time-zone communications",
     "techStack": "My tech stack",
     "improving": "I constantly try to improve",
-    "projectTogether": "Need a hands-on engineer who ships and stays for maintenance?",
+    "projectTogether": "Ready to start a project?",
     "techEnthusiast": "Tech enthusiast with passion for development",
     "buildingLibrary": "Currently running Catalysing IT"
   },
@@ -110,5 +125,11 @@
     "showWork": "Show my work",
     "copyEmail": "Copy my email address",
     "emailCopied": "Email is Copied!"
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Go Back Home"
   }
 } 

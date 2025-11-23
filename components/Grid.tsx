@@ -9,10 +9,13 @@ const Grid = () => {
   const t = useTranslations('about');
   
   return (
-    <section id="about" className="w-full">
-        <SectionTitle namespace="about" titleKey="title" highlightedWordIndex={1} />
+    <section id="about" className="relative w-full py-12">
+      <div className="section-shell space-y-10 overflow-hidden">
+        <div className="text-center">
+          <SectionTitle namespace="about" titleKey="title" highlightedWordIndex={1} />
+        </div>
         <div className="w-full max-w-full overflow-hidden">
-          <BentoGrid className="w-full py-20 px-4 sm:px-6 lg:px-8">
+          <BentoGrid className="w-full py-12 px-2 sm:px-4 lg:px-6">
               {gridItems.map(({ id, title, description, className, img, imgClassName, titleClassName, spareImg }) => (
                   <BentoGridItem
                   id={id}
@@ -23,7 +26,7 @@ const Grid = () => {
                          id === 4 ? t('techEnthusiast') : 
                          id === 5 ? t('buildingLibrary') : 
                          id === 6 ? t('projectTogether') : title}
-                  description={id === 3 ? t('improving') : description}
+                  description={description}
                   className={className}
                   img={img}
                   imgClassName={imgClassName}
@@ -33,6 +36,7 @@ const Grid = () => {
               ))}
           </BentoGrid>
         </div>
+      </div>
     </section>
   )
 }
