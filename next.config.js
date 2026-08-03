@@ -1,12 +1,21 @@
 const withNextIntl = require('next-intl/plugin')(
-  // Specify the path to your i18n configuration
   './app/i18n/request.ts'
 );
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Add any other next config here
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
+  poweredByHeader: false,
+  experimental: {
+    // Enables app/global-not-found.tsx with its own <html>/<body>
+    // (needed because root layout returns children for next-intl).
+    globalNotFound: true,
+  },
 };
 
-module.exports = withNextIntl(nextConfig); 
+module.exports = withNextIntl(nextConfig);

@@ -11,7 +11,8 @@ export const gridItems = [
     id: 1,
     title: "I prioritize client collaboration, fostering open communication ",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className:
+      "col-span-2 min-h-[200px] sm:min-h-[220px] md:col-span-6 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
     img: "/b1.svg",
@@ -21,7 +22,8 @@ export const gridItems = [
     id: 2,
     title: "I'm very flexible with time zone communications",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className:
+      "col-span-1 min-h-[210px] sm:min-h-[230px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "",
@@ -31,9 +33,10 @@ export const gridItems = [
     id: 3,
     title: "My tech stack",
     description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    className:
+      "col-span-1 min-h-[210px] sm:min-h-[230px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
-    titleClassName: "justify-center",
+    titleClassName: "justify-start",
     img: "",
     spareImg: "",
   },
@@ -41,20 +44,21 @@ export const gridItems = [
     id: 4,
     title: "Tech enthusiast with a passion for development.",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className:
+      "col-span-1 min-h-[140px] sm:min-h-[150px] md:col-span-3 md:row-span-1 md:min-h-[120px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "/grid.svg",
     spareImg: "/b4.svg",
   },
-
   {
     id: 5,
     title: "Currently building a JS Animation library",
     description: "The Inside Scoop",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
+    className:
+      "col-span-1 min-h-[150px] sm:min-h-[170px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
+    imgClassName: "",
+    titleClassName: "justify-start lg:justify-center",
     img: "/b5.svg",
     spareImg: "/grid.svg",
   },
@@ -62,9 +66,10 @@ export const gridItems = [
     id: 6,
     title: "Do you want to start a project together?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className:
+      "col-span-2 min-h-[170px] sm:min-h-[180px] md:col-span-3 md:row-span-1 md:min-h-[120px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    titleClassName: "justify-center text-center max-w-full",
     img: "",
     spareImg: "",
   },
@@ -73,113 +78,54 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
+    title: "Catalysing IT",
+    des: "A modern digital services company website showcasing services, portfolio, and expertise in web development and software solutions.",
+    img: "/thumbnails/catalysing-it-LP.webp",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg"],
+    link: "https://catalysingit.com/",
+  },
+  {
+    id: 2,
     title: "SailorMooners (SPA) - Hackathon ",
     des: "A single-page application inspired by Sailor Moon, developed in 24 hours during a hackathon. Built with jQuery.",
-    img: "/scs-sailormooners.svg",
+    img: "/thumbnails/spa-LP.webp",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
     link: "https://sailormooners.pedrofdev.com/",
   },
-  {
-    id: 2,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://iphone-clone.xyz/",
-  },
-  {
-    id: 3,
-    title: "Fetch API - Pokemon Theme",
-    des: "API-powered project. It fetches and displays Pokémon data dynamically, offering a interface to browse your Pokémon.",
-    img: "/scs-fetchAPIpokemon.svg",
-    iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
-    link: "https://pokeapi.pedrofdev.com/",
-  },
 ];
-
-/*
-{
-    id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
-  },
-{
-    id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
-  },
-  {
-    id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
-  },*/
 
 export const clientProjects = [
   {
     id: 1,
     title: "PJ Ferreira",
     des: "A modern website for PJ Ferreira, specializing in aluminium and PVC products.",
-    img: "/scs-pj.svg",
+    img: "/thumbnails/pjferreria-LP.webp",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg", "/hostinger.svg"],
     link: "https://pjferreira.pt/",
   },
   {
     id: 2,
-    title: "Nails by Johanna",
-    des: "A professional website for a nail salon showcasing services, professional work, and appointment booking functionality.",
-    img: "/scs-nailsbyjohanna.jpg",
+    title: "Oliver Baguera",
+    des: "A professional website showcasing services and professional work.",
+    img: "/thumbnails/oliverbaguera-LP.webp",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/vite.svg"],
-    link: "https://nailsbyjohanna.pedrofdev.com/",
+    link: "https://oliverbaguera.pt/",
   },
   {
     id: 3,
-    title: "Totogram",
-    des: "Transform everyday photos into breathtaking Ghibli-inspired masterpieces with AI magic. Create stunning artwork that captures emotions.",
-    img: "/scs-totogram.png",
-    iconLists: ["/re.svg", "/vite.svg", "/tail.svg", "/node-js.svg", "/mongodb.svg", "/firebase.svg"],
-    link: "https://totogram.io/",
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "Collaborating with Pedro was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Pedro's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Pedro is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    title: "Wow! Lisboa Free Tours",
+    des: "A bilingual marketing website for free walking tours in Lisbon, with tour listings, booking CTAs, gallery and company story.",
+    img: "/thumbnails/wowlisboa-LP.webp",
+    iconLists: ["/re.svg", "/next.svg", "/js.svg", "/tail.svg"],
+    link: "https://wowlisboafreetours.com/",
   },
   {
-    quote:
-    "Collaborating with Pedro was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Pedro's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Pedro is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Pedro was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Pedro's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Pedro is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Pedro was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Pedro's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Pedro is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Pedro was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Pedro's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Pedro is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    id: 4,
+    title: "Nimadi Pet Photography",
+    des: "A premium bilingual portfolio site for pet photography in Portugal, featuring galleries, services, testimonials and booking inquiry.",
+    img: "/thumbnails/nimadi-LP.webp",
+    iconLists: ["/re.svg", "/next.svg", "/js.svg", "/tail.svg"],
+    link: "https://nimadiphotography.com/",
   },
 ];
 
@@ -188,61 +134,44 @@ export const companies = [
     id: 1,
     name: "cloudinary",
     img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
   },
   {
     id: 2,
     name: "appwrite",
     img: "/app.svg",
-    nameImg: "/appName.svg",
   },
   {
     id: 3,
     name: "HOSTINGER",
     img: "/host.svg",
-    nameImg: "/hostName.svg",
   },
   {
     id: 4,
     name: "stream",
     img: "/s.svg",
-    nameImg: "/streamName.svg",
   },
   {
     id: 5,
     name: "docker.",
     img: "/dock.svg",
-    nameImg: "/dockerName.svg",
   },
 ];
 
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-    className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Web Performance Specialist",
-    desc: "Optimized website performance by reducing load times by 50%. Ensured SEO best practices and enhanced overall user experience.",
-    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
 ];

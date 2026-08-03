@@ -1,189 +1,210 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 
-// Dynamic import with no SSR to avoid hydration issues
-const World = dynamic(() => import("./Globe").then((m) => m.World), {
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
+import type { GlobeConfig, Position } from "./Globe";
+
+/**
+ * GitHub-style globe wrapper (Aceternity UI pattern).
+ * @see https://ui.aceternity.com/components/github-globe
+ */
+const World = dynamic(() => import("./Globe").then((mod) => mod.World), {
   ssr: false,
+  loading: () => <GlobeShell />,
 });
 
-const GridGlobe = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isError, setIsError] = useState(false);
+const COLORS = ["#06b6d4", "#3b82f6", "#6366f1", "#38bdf8"] as const;
 
-  useEffect(() => {
-    try {
-      setIsMounted(true);
-    } catch (error) {
-      console.error("Failed to initialize globe:", error);
-      setIsError(true);
-    }
-  }, []);
+/** Stable arc set — no Math.random on render (avoids remount thrash + NaN risk). */
+const SAMPLE_ARCS: Position[] = [
+  // Lisbon hub — portfolio owner base
+  {
+    order: 1,
+    startLat: 38.7223,
+    startLng: -9.1393,
+    endLat: 40.7128,
+    endLng: -74.006,
+    arcAlt: 0.35,
+    color: COLORS[0],
+  },
+  {
+    order: 1,
+    startLat: 38.7223,
+    startLng: -9.1393,
+    endLat: 51.5072,
+    endLng: -0.1276,
+    arcAlt: 0.2,
+    color: COLORS[1],
+  },
+  {
+    order: 1,
+    startLat: 38.7223,
+    startLng: -9.1393,
+    endLat: -23.5505,
+    endLng: -46.6333,
+    arcAlt: 0.45,
+    color: COLORS[2],
+  },
+  {
+    order: 2,
+    startLat: 38.7223,
+    startLng: -9.1393,
+    endLat: 48.8566,
+    endLng: 2.3522,
+    arcAlt: 0.15,
+    color: COLORS[3],
+  },
+  // Global connections (Aceternity demo style)
+  {
+    order: 2,
+    startLat: 51.5072,
+    startLng: -0.1276,
+    endLat: 40.7128,
+    endLng: -74.006,
+    arcAlt: 0.3,
+    color: COLORS[0],
+  },
+  {
+    order: 3,
+    startLat: 1.3521,
+    startLng: 103.8198,
+    endLat: 35.6762,
+    endLng: 139.6503,
+    arcAlt: 0.2,
+    color: COLORS[1],
+  },
+  {
+    order: 3,
+    startLat: 22.3193,
+    startLng: 114.1694,
+    endLat: 51.5072,
+    endLng: -0.1276,
+    arcAlt: 0.35,
+    color: COLORS[2],
+  },
+  {
+    order: 4,
+    startLat: -33.8688,
+    startLng: 151.2093,
+    endLat: 22.3193,
+    endLng: 114.1694,
+    arcAlt: 0.3,
+    color: COLORS[3],
+  },
+  {
+    order: 4,
+    startLat: 34.0522,
+    startLng: -118.2437,
+    endLat: 48.8566,
+    endLng: 2.3522,
+    arcAlt: 0.4,
+    color: COLORS[0],
+  },
+  {
+    order: 5,
+    startLat: -22.9068,
+    startLng: -43.1729,
+    endLat: 28.6139,
+    endLng: 77.209,
+    arcAlt: 0.55,
+    color: COLORS[1],
+  },
+  {
+    order: 5,
+    startLat: 37.7749,
+    startLng: -122.4194,
+    endLat: 35.6762,
+    endLng: 139.6503,
+    arcAlt: 0.45,
+    color: COLORS[2],
+  },
+  {
+    order: 6,
+    startLat: 52.52,
+    startLng: 13.405,
+    endLat: 22.3193,
+    endLng: 114.1694,
+    arcAlt: 0.35,
+    color: COLORS[3],
+  },
+  {
+    order: 6,
+    startLat: 41.9028,
+    startLng: 12.4964,
+    endLat: 34.0522,
+    endLng: -118.2437,
+    arcAlt: 0.4,
+    color: COLORS[0],
+  },
+  {
+    order: 7,
+    startLat: -34.6037,
+    startLng: -58.3816,
+    endLat: 40.7128,
+    endLng: -74.006,
+    arcAlt: 0.35,
+    color: COLORS[1],
+  },
+  {
+    order: 7,
+    startLat: 28.6139,
+    startLng: 77.209,
+    endLat: 1.3521,
+    endLng: 103.8198,
+    arcAlt: 0.25,
+    color: COLORS[2],
+  },
+  {
+    order: 8,
+    startLat: 48.8566,
+    startLng: 2.3522,
+    endLat: 35.6762,
+    endLng: 139.6503,
+    arcAlt: 0.4,
+    color: COLORS[3],
+  },
+];
 
-  const globeConfig = {
-    pointSize: 4,
-    globeColor: "#062056",
-    showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
-    atmosphereAltitude: 0.1,
-    emissive: "#062056",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
-    arcTime: 1000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    initialPosition: { lat: 22.3193, lng: 114.1694 },
-    autoRotate: true,
-    autoRotateSpeed: 0.5,
-  };
-  
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
-  
-  // Render a placeholder during server-side rendering
-  // This will be replaced during client-side hydration
-  const placeholder = (
-    <div className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1 flex items-center justify-center bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-full">
-      {/* Empty div to prevent hydration mismatch */}
-    </div>
+const globeConfig: GlobeConfig = {
+  pointSize: 4,
+  globeColor: "#062056",
+  showAtmosphere: true,
+  atmosphereColor: "#FFFFFF",
+  atmosphereAltitude: 0.1,
+  emissive: "#062056",
+  emissiveIntensity: 0.1,
+  shininess: 0.9,
+  polygonColor: "rgba(255,255,255,0.7)",
+  ambientLight: "#38bdf8",
+  directionalLeftLight: "#ffffff",
+  directionalTopLight: "#ffffff",
+  pointLight: "#ffffff",
+  arcTime: 1000,
+  arcLength: 0.9,
+  rings: 1,
+  maxRings: 3,
+  initialPosition: { lat: 38.7223, lng: -9.1393 },
+  autoRotate: true,
+  autoRotateSpeed: 0.5,
+};
+
+function GlobeShell() {
+  return (
+    <div className="flex h-full w-full items-center justify-center rounded-2xl bg-gradient-to-br from-blue-900/20 to-indigo-900/20" />
   );
-  
-  // If there's an error, show a fallback UI
-  if (isError) {
-    return (
-      <div className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1 flex items-center justify-center bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-full">
-        <span className="text-blue-300 text-sm">3D Globe visualization unavailable</span>
-      </div>
-    );
-  }
-  
-  // Only render the World component on client side
-  if (!isMounted) {
-    return placeholder;
-  }
+}
 
+const GridGlobe = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="absolute w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] -top-3 -right-12 lg:-top-10 lg:-right-1"
+      className="relative h-full w-full"
     >
-      <World globeConfig={globeConfig} data={generateRandomData(colors)} />
+      <World globeConfig={globeConfig} data={SAMPLE_ARCS} />
     </motion.div>
   );
 };
-
-// Generate reliable data for the globe visualization
-function generateRandomData(colors: string[]) {
-  try {
-    if (!colors || !Array.isArray(colors) || colors.length === 0) {
-      // Fallback colors if none provided
-      colors = ["#06b6d4", "#3b82f6", "#6366f1"];
-    }
-    
-    const data = [];
-    const numberOfPoints = Math.floor(Math.random() * 10) + 10; // Between 10-20 points
-    
-    // Major cities coordinates to use as realistic points
-    const majorCities = [
-      { lat: 40.7128, lng: -74.006 },  // New York
-      { lat: 51.5074, lng: -0.1278 },  // London
-      { lat: 48.8566, lng: 2.3522 },   // Paris
-      { lat: 35.6762, lng: 139.6503 }, // Tokyo
-      { lat: 22.3193, lng: 114.1694 }, // Hong Kong
-      { lat: -33.8688, lng: 151.2093 },// Sydney
-      { lat: 19.4326, lng: -99.1332 }, // Mexico City
-      { lat: -23.5505, lng: -46.6333 },// São Paulo
-      { lat: 55.7558, lng: 37.6173 },  // Moscow
-      { lat: 28.6139, lng: 77.209 },   // New Delhi
-      { lat: 1.3521, lng: 103.8198 },  // Singapore
-      { lat: -34.6037, lng: -58.3816 },// Buenos Aires
-      { lat: 37.7749, lng: -122.4194 },// San Francisco
-      { lat: 34.0522, lng: -118.2437 },// Los Angeles
-      { lat: 41.9028, lng: 12.4964 },  // Rome
-      { lat: 52.52, lng: 13.405 },     // Berlin
-    ];
-    
-    for (let i = 0; i < numberOfPoints; i++) {
-      // Get two random cities 
-      const startCityIndex = Math.floor(Math.random() * majorCities.length);
-      let endCityIndex;
-      
-      // Make sure end city is different from start city
-      do {
-        endCityIndex = Math.floor(Math.random() * majorCities.length);
-      } while (endCityIndex === startCityIndex);
-      
-      const startCity = majorCities[startCityIndex];
-      const endCity = majorCities[endCityIndex];
-      
-      // Calculate a good arc altitude based on distance
-      const distance = calculateDistance(
-        startCity.lat, startCity.lng, 
-        endCity.lat, endCity.lng
-      );
-      
-      // Arc height proportional to distance, but capped
-      const arcAlt = Math.min(Math.max(distance / 15000, 0.1), 0.8);
-      
-      // Get a random color from the colors array
-      const colorIndex = Math.floor(Math.random() * colors.length);
-      
-      data.push({
-        order: Math.floor(Math.random() * 8) + 1, // Random order between 1-8
-        startLat: startCity.lat,
-        startLng: startCity.lng,
-        endLat: endCity.lat,
-        endLng: endCity.lng,
-        arcAlt: arcAlt,
-        color: colors[colorIndex],
-      });
-    }
-    
-    return data;
-  } catch (error) {
-    console.error("Error generating globe data:", error);
-    // Return minimal fallback data to prevent rendering errors
-    return [
-      {
-        order: 1,
-        startLat: 40.7128,
-        startLng: -74.006,
-        endLat: 51.5074,
-        endLng: -0.1278,
-        arcAlt: 0.3,
-        color: "#3b82f6"
-      }
-    ];
-  }
-}
-
-// Helper function to calculate distance between two points on Earth
-function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
-  try {
-    const R = 6371e3; // Earth's radius in meters
-    const φ1 = lat1 * Math.PI/180;
-    const φ2 = lat2 * Math.PI/180;
-    const Δφ = (lat2-lat1) * Math.PI/180;
-    const Δλ = (lon2-lon1) * Math.PI/180;
-
-    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-              Math.cos(φ1) * Math.cos(φ2) *
-              Math.sin(Δλ/2) * Math.sin(Δλ/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-    return R * c; // Distance in meters
-  } catch (error) {
-    console.error("Error calculating distance:", error);
-    return 10000; // Return a default distance
-  }
-}
 
 export default GridGlobe;

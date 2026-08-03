@@ -1,0 +1,46 @@
+RewriteEngine On
+
+# Custom 404 for static export (Next.js out/404.html)
+ErrorDocument 404 /404.html
+
+# Redirect root URL to /en/
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /en/ [L,R=302]
+
+# Locale home shortcuts (optional trailing content already handled by static files)
+# Unknown paths fall through to ErrorDocument 404 above.
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header unset X-Powered-By
+</IfModule>
+
+# MIME types
+AddType application/javascript .js
+AddType application/json .json
+AddType text/css .css
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
