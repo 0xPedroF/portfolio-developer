@@ -23,14 +23,7 @@ const eslintConfig = defineConfig([
       "no-var": "off",
     },
   },
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "node_modules/**",
-    "components/ui/InfiniteCards.tsx",
-    "components/ui/Spotlight.tsx",
-    "components/ui/Switch.tsx",
-  ]),
+  globalIgnores([".next/**", "out/**", "node_modules/**"]),
 ]);
 
 export default eslintConfig;
