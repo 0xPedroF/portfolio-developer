@@ -1,5 +1,5 @@
-import React from 'react';
-import { useTranslations } from 'next-intl';
+import React from "react";
+import { useTranslations } from "next-intl";
 
 interface SectionTitleProps {
   namespace: string;
@@ -7,27 +7,28 @@ interface SectionTitleProps {
   highlightedWordIndex?: number;
 }
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ 
-  namespace, 
+const SectionTitle: React.FC<SectionTitleProps> = ({
+  namespace,
   titleKey,
-  highlightedWordIndex = 1
+  highlightedWordIndex = 1,
 }) => {
   const t = useTranslations(namespace);
   const title = t(titleKey);
-  const words = title.split(' ');
-  
+  const words = title.split(" ");
+
   return (
-    <h1 className="heading">
+    <h2 className="heading">
       {words.map((word, index) => (
-        <span 
-          key={index} 
-          className={index === highlightedWordIndex ? 'text-purple' : ''}
+        <span
+          key={`${word}-${index}`}
+          className={index === highlightedWordIndex ? "heading-accent" : undefined}
         >
-          {word}{' '}
+          {word}
+          {index < words.length - 1 ? " " : ""}
         </span>
       ))}
-    </h1>
+    </h2>
   );
 };
 
-export default SectionTitle; 
+export default SectionTitle;

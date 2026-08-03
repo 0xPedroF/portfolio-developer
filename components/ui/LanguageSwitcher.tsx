@@ -40,7 +40,7 @@ export default function LanguageSwitcher() {
     <div className="relative z-50" ref={dropdownRef}>
       <button 
         onClick={toggleDropdown}
-        className="flex items-center gap-1 py-2 px-3 rounded-lg border border-purple-400/30 text-white/90 text-sm font-medium transition-all duration-300 hover:text-white hover:border-purple-400/70 hover:bg-purple-400/10 cursor-pointer"
+        className="flex cursor-pointer items-center gap-1 rounded-lg border border-sky-400/25 px-3 py-2 font-mono text-sm font-medium tracking-wide text-white/90 transition-all duration-300 hover:border-sky-400/60 hover:bg-sky-400/10 hover:text-white"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
@@ -69,11 +69,11 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2 w-36 bg-[#0a0a19] border border-purple-400/20 rounded-lg shadow-lg py-1 overflow-hidden"
+            className="absolute right-0 mt-2 w-36 overflow-hidden rounded-xl border border-white/10 bg-[#0a0a19]/95 py-1 shadow-lg backdrop-blur-md"
           >
             <button
               onClick={() => changeLanguage('en')}
-              className={`flex items-center w-full px-4 py-2 text-sm ${locale === 'en' ? 'text-purple-400 bg-purple-400/10' : 'text-white/80 hover:bg-purple-400/5'}`}
+              className={`flex w-full items-center px-4 py-2.5 text-sm ${locale === 'en' ? 'bg-sky-400/10 text-sky-300' : 'text-white/80 hover:bg-white/5'}`}
             >
               <span className="mr-2">🇬🇧</span>
               <span>{t('en')}</span>
@@ -96,7 +96,7 @@ export default function LanguageSwitcher() {
             </button>
             <button
               onClick={() => changeLanguage('pt')}
-              className={`flex items-center w-full px-4 py-2 text-sm ${locale === 'pt' ? 'text-purple-400 bg-purple-400/10' : 'text-white/80 hover:bg-purple-400/5'}`}
+              className={`flex w-full items-center px-4 py-2.5 text-sm ${locale === 'pt' ? 'bg-sky-400/10 text-sky-300' : 'text-white/80 hover:bg-white/5'}`}
             >
               <span className="mr-2">🇵🇹</span>
               <span>{t('pt')}</span>

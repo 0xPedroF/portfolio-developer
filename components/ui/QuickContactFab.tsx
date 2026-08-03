@@ -81,11 +81,11 @@ const QuickContactFab = () => {
     };
   }, [isOpen]);
 
-  const radius = 112;
+  const radius = 96;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[80]" ref={wrapperRef}>
-      <div className="relative h-16 w-16">
+    <div className="fixed bottom-4 right-4 z-[80] sm:bottom-6 sm:right-6" ref={wrapperRef}>
+      <div className="relative h-14 w-14 sm:h-16 sm:w-16">
         <AnimatePresence>
           {actions.map((action, index) => {
             const angleDeg =
@@ -154,10 +154,10 @@ const QuickContactFab = () => {
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-label="Quick contact menu"
-          className="absolute inset-0 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#5c5ce0] via-[#4c57c8] to-[#1f7ac9] text-white shadow-[0_18px_35px_rgba(31,122,201,0.35)] ring-1 ring-white/15 transition hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+          className="absolute inset-0 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#5c5ce0] via-[#4c57c8] to-[#1f7ac9] text-white shadow-[0_18px_35px_rgba(31,122,201,0.35)] ring-1 ring-white/15 transition hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 sm:h-16 sm:w-16"
         >
           <FaPaperPlane
-            className={`text-2xl transition-transform duration-300 ${
+            className={`text-xl transition-transform duration-300 sm:text-2xl ${
               isOpen ? "rotate-45" : ""
             }`}
           />

@@ -11,13 +11,13 @@ const Footer = () => {
   
   return (
     <>
-      <footer className="w-full py-16" id="contact">
-        <div className="section-shell space-y-8 text-center">
+      <footer className="section-gap" id="contact">
+        <div className="section-shell space-y-6 text-center sm:space-y-8">
           <SectionTitle namespace="footer" titleKey="title" highlightedWordIndex={1} />
-          <p className="text-white/70 md:mt-6 max-w-2xl mx-auto">
+          <p className="body-muted mx-auto max-w-2xl md:mt-2">
             {t('reachOut')}
           </p>
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-3 sm:gap-4">
             <a href="mailto:contact@pedrofdev.com" className="w-full max-w-md">
               <MagicButton
                 translationKey="cta"
@@ -28,15 +28,15 @@ const Footer = () => {
             </a>
             <a 
               href="mailto:contact@pedrofdev.com" 
-              className="text-base text-white/80 hover:text-white transition-colors"
+              className="break-all font-mono text-sm tracking-tight text-white/70 transition-colors hover:text-sky-300 sm:text-base"
             >
               contact@pedrofdev.com
             </a>
           </div>
         </div>
       </footer>
-      <p className="text-center text-sm text-white/40 pb-8">
-        {t('copyright')}
+      <p className="pb-6 text-center font-mono text-[11px] tracking-wide text-white/35 sm:pb-8 sm:text-xs">
+        {t('copyright', { year: new Date().getFullYear() })}
       </p>
     </>
   );
