@@ -39,24 +39,13 @@
     "buildingLibrary": "Atualmente a liderar a Catalysing IT."
   },
   "projects": {
-    "title": "Projetos Recentes",
-    "titleHTML": "Uma pequena seleção dos meus <span class=\"text-purple\">projetos recentes</span>",
-    "viewAll": "Ver Todos",
-    "recentText": "Projetos",
-    "projectsText": "Recentes"
+    "title": "Projetos Recentes"
   },
   "clients": {
-    "title": "Projetos de Clientes",
-    "titleHTML": "Projetos que desenvolvi para <span class=\"text-purple\">Clientes</span>",
-    "testimonialsHTML": "Palavras gentis de <span class=\"text-purple\">clientes satisfeitos</span>",
-    "viewAll": "Ver Todos",
-    "clientText": "Projetos de",
-    "projectsText": "Clientes"
+    "title": "Projetos de Clientes"
   },
   "experience": {
     "title": "Minha experiência profissional",
-    "titleHTML": "Minha <span class=\"text-purple\">experiência profissional</span>",
-    "viewAll": "Ver Todos",
     "connectWith": "Conecte-se comigo nas",
     "socialMedia": "redes sociais",
     "checkOutWork": "Confira o meu trabalho, conecte-se profissionalmente ou descarregue o meu currículo para saber mais sobre a minha experiência",
@@ -79,8 +68,6 @@
   },
   "approach": {
     "title": "Minha abordagem",
-    "titleHTML": "Minha <span class=\"text-purple\">abordagem</span>",
-    "description": "Acredito numa abordagem metódica de desenvolvimento que se concentra em clareza, colaboração e excelência.",
     "phase1": "Fase 1",
     "phase1Title": "Planeamento e Estratégia",
     "phase1Description": "Colaboraremos para mapear os objetivos do seu site, público-alvo e funcionalidades principais. Discutiremos aspetos como estrutura do site, navegação e requisitos de conteúdo.",
@@ -93,10 +80,6 @@
   },
   "footer": {
     "title": "Pronto para elevar a sua presença digital para o próximo nível?",
-    "subtitle": "Pronto para elevar",
-    "your": "a sua",
-    "digital": "presença digital para o próximo nível?",
-    "titleHTML": "Pronto para elevar <span class=\"text-purple\">a sua</span> presença digital para o próximo nível?",
     "reachOut": "Entre em contacto comigo hoje e vamos discutir como posso ajudá-lo a alcançar os seus objetivos.",
     "cta": "Vamos conversar",
     "copyright": "Copyright © {year} Pedro Ferreira. Todos os direitos reservados.",
@@ -108,28 +91,17 @@
     "en": "Inglês",
     "pt": "Português"
   },
-  "nav": {
-    "home": "Início",
-    "about": "Sobre",
-    "projects": "Projetos",
-    "skills": "Competências",
-    "contact": "Contacto"
-  },
   "common": {
-    "viewMore": "Ver Mais",
-    "readMore": "Ler Mais",
     "viewProject": "Ver Projeto",
     "sendMessage": "Enviar Mensagem",
-    "downloadCV": "Descarregar CV",
-    "showSkills": "Ver as minhas competências",
     "showWork": "Ver o meu trabalho",
     "copyEmail": "Copiar o meu email",
     "emailCopied": "Email Copiado!"
   },
   "notFound": {
-    "title": "404",
-    "heading": "Página Não Encontrada",
-    "description": "A página que procura não existe ou foi movida.",
-    "backHome": "Voltar ao Início"
+    "status": "RADAR · SEM SINAL",
+    "heading": "Varríamos o mapa todo…",
+    "description": "Esta rota deu ghost. Zero pings no radar — só espaço vazio.",
+    "backHome": "Leva-me a casa"
   }
-} 
+}

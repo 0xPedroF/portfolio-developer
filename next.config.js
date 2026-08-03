@@ -11,6 +11,11 @@ const nextConfig = {
   },
   trailingSlash: true,
   poweredByHeader: false,
+  experimental: {
+    // Enables app/global-not-found.tsx with its own <html>/<body>
+    // (needed because root layout returns children for next-intl).
+    globalNotFound: true,
+  },
 };
 
 module.exports = withNextIntl(nextConfig);

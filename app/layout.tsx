@@ -1,5 +1,5 @@
-// Root layout - required by Next.js
-// For static export with next-intl, the locale layout handles the actual HTML structure
+// Root layout required by Next.js.
+// Locale routes own <html>/<body> in app/[locale]/layout.tsx (next-intl static export).
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,7 +7,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // For static export with locale routing, children from [locale]/layout already includes html/body
-  // This root layout is required by Next.js but may not render in final output
   return children;
 }

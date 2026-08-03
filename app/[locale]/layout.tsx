@@ -3,29 +3,9 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import { locales, type Locale } from '../i18n/request';
-import { ThemeProvider } from '../provider';
 import ErrorHandler from '../error-handler';
-import localFont from "next/font/local";
-import { Outfit } from "next/font/google";
+import { fontVariables } from '../fonts';
 import type { Metadata } from "next";
-
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-  display: "swap",
-});
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-  display: "swap",
-});
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -82,27 +62,20 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} font-sans antialiased`}
+        className={`${fontVariables} font-sans antialiased`}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+          timeZone="Europe/Lisbon"
         >
-          <NextIntlClientProvider
-            locale={locale}
-            messages={messages}
-            timeZone="Europe/Lisbon"
-          >
-            <ErrorHandler>
-              {children}
-            </ErrorHandler>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+          <ErrorHandler>
+            {children}
+          </ErrorHandler>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

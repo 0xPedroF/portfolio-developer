@@ -39,24 +39,13 @@
     "buildingLibrary": "Currently running Catalysing IT"
   },
   "projects": {
-    "title": "Recent Projects",
-    "titleHTML": "A small selection of my <span class=\"text-purple\">recent projects</span>",
-    "viewAll": "View All",
-    "recentText": "Recent",
-    "projectsText": "Projects"
+    "title": "Recent Projects"
   },
   "clients": {
-    "title": "Client Projects",
-    "titleHTML": "Projects I've Developed for <span class=\"text-purple\">Clients</span>",
-    "testimonialsHTML": "Kind words from <span class=\"text-purple\">satisfied clients</span>",
-    "viewAll": "View All",
-    "clientText": "Client",
-    "projectsText": "Projects"
+    "title": "Client Projects"
   },
   "experience": {
     "title": "My work experience",
-    "titleHTML": "My <span class=\"text-purple\">work experience</span>",
-    "viewAll": "View All",
     "connectWith": "Connect with me on",
     "socialMedia": "social media",
     "checkOutWork": "Check out my work, connect professionally, or download my resume to learn more about my experience",
@@ -73,14 +62,12 @@
       "desc": "Digitized inventory and marketing workflows with custom software, blending technical delivery with day-to-day operational leadership."
     },
     "job4": {
-    "title": "Freelance Web Developer · pedrofdev.com",
-    "desc": "Building marketing sites, dashboards, and APIs with modern stacks, analytics, and integrations that boost clients' businesses."
+      "title": "Freelance Web Developer · pedrofdev.com",
+      "desc": "Building marketing sites, dashboards, and APIs with modern stacks, analytics, and integrations that boost clients' businesses."
     }
   },
   "approach": {
     "title": "My approach",
-    "titleHTML": "My <span class=\"text-purple\">approach</span>",
-    "description": "I believe in a methodical approach to development that focuses on clarity, collaboration, and excellence.",
     "phase1": "Phase 1",
     "phase1Title": "Planning & Strategy",
     "phase1Description": "We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements.",
@@ -93,10 +80,6 @@
   },
   "footer": {
     "title": "Ready to take your digital presence to the next level?",
-    "subtitle": "Ready to take",
-    "your": "your",
-    "digital": "digital presence to the next level?",
-    "titleHTML": "Ready to take <span class=\"text-purple\">your</span> digital presence to the next level?",
     "reachOut": "Reach out to me today and let's discuss how I can help you achieve your goals.",
     "cta": "Let's get in touch",
     "copyright": "Copyright © {year} Pedro Ferreira. All rights reserved.",
@@ -108,28 +91,17 @@
     "en": "English",
     "pt": "Portuguese"
   },
-  "nav": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "skills": "Skills",
-    "contact": "Contact"
-  },
   "common": {
-    "viewMore": "View More",
-    "readMore": "Read More",
     "viewProject": "View Project",
     "sendMessage": "Send Message",
-    "downloadCV": "Download CV",
-    "showSkills": "Show my skills",
     "showWork": "Show my work",
     "copyEmail": "Copy my email address",
     "emailCopied": "Email is Copied!"
   },
   "notFound": {
-    "title": "404",
-    "heading": "Page Not Found",
-    "description": "The page you're looking for doesn't exist or has been moved.",
-    "backHome": "Go Back Home"
+    "status": "RADAR · NO MATCH",
+    "heading": "We scanned the whole map…",
+    "description": "This route ghosted us. Zero pings on the radar — just empty space.",
+    "backHome": "Beam me home"
   }
-} 
+}

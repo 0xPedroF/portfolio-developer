@@ -1,14 +1,14 @@
 RewriteEngine On
 
+# Custom 404 for static export (Next.js out/404.html)
+ErrorDocument 404 /404.html
+
 # Redirect root URL to /en/
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule ^(.*)$ /en/ [L,R=302]
 
-# Front controller for Next.js static export
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/(en|pt)/
-RewriteRule ^(.*)$ /index.html [L,QSA]
+# Locale home shortcuts (optional trailing content already handled by static files)
+# Unknown paths fall through to ErrorDocument 404 above.
 
 # Security headers
 <IfModule mod_headers.c>

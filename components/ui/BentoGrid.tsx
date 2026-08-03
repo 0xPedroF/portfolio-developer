@@ -102,7 +102,6 @@ function PanelMedia({
     <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
       {img ? (
         id === 5 ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={img}
             alt=""
@@ -129,7 +128,6 @@ function PanelMedia({
       ) : null}
 
       {spareImg ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={spareImg}
           alt=""
