@@ -1,25 +1,34 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
-import { locales } from '../i18n/request';
+import { locales, type Locale } from '../i18n/request';
 import { ThemeProvider } from '../provider';
 import ErrorHandler from '../error-handler';
 import localFont from "next/font/local";
+import { Outfit } from "next/font/google";
 import type { Metadata } from "next";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+  display: "swap",
 });
 const geistMono = localFont({
   src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+  display: "swap",
+});
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
 });
 
 export function generateStaticParams() {
-  return locales.map(locale => ({ locale }));
+  return locales.map((locale) => ({ locale }));
 }
 
 export const metadata: Metadata = {
@@ -54,35 +63,40 @@ export const metadata: Metadata = {
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) notFound();
-  
+  const { locale } = await params;
+
+  if (!locales.includes(locale as Locale)) notFound();
+
+  setRequestLocale(locale);
+
   let messages;
   try {
     messages = (await import(`../../messages/${locale}/index.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider 
-            locale={locale} 
+          <NextIntlClientProvider
+            locale={locale}
             messages={messages}
             timeZone="Europe/Lisbon"
-            now={new Date()}
           >
             <ErrorHandler>
               {children}
@@ -92,4 +106,4 @@ export default async function LocaleLayout({
       </body>
     </html>
   );
-} 
+}

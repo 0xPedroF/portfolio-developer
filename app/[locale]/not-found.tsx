@@ -12,25 +12,25 @@ export default function NotFound() {
   return (
     <main className="relative isolate flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-transparent px-4 sm:px-8 md:px-10 lg:px-12">
       {/* Background effects matching the site design */}
-      <div className="pointer-events-none absolute -top-64 right-[-10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-purple-500/30 via-indigo-500/20 to-transparent blur-[140px]" />
-      <div className="pointer-events-none absolute top-32 left-[-20%] h-[420px] w-[420px] rounded-full bg-gradient-to-br from-sky-400/25 via-cyan-500/10 to-transparent blur-[120px]" />
+      <div className="pointer-events-none absolute -top-64 right-[-10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-500/25 via-indigo-500/15 to-transparent blur-[140px]" />
+      <div className="pointer-events-none absolute top-32 left-[-20%] h-[420px] w-[420px] rounded-full bg-gradient-to-br from-cyan-400/20 via-teal-500/10 to-transparent blur-[120px]" />
       <div className="pointer-events-none absolute inset-0 opacity-50">
         <div className="grid-overlay" />
       </div>
 
       <div className="relative z-10 w-full max-w-4xl">
-        <div className="section-shell text-center space-y-8">
-          <div className="absolute inset-0 pointer-events-none">
+        <div className="section-shell space-y-8 text-center">
+          <div className="pointer-events-none absolute inset-0">
             <div className="grid-overlay" />
           </div>
           
           {/* 404 Number */}
           <div className="relative">
-            <h1 className="text-9xl md:text-[12rem] font-extrabold bg-gradient-to-br from-purple-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-2xl">
+            <h1 className="bg-gradient-to-br from-sky-300 via-indigo-300 to-violet-300 bg-clip-text font-display text-9xl font-extrabold tracking-tight text-transparent drop-shadow-2xl md:text-[12rem]">
               {t("title")}
             </h1>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-32 w-32 rounded-full bg-purple-500/20 blur-3xl animate-pulse" />
+              <div className="h-32 w-32 animate-pulse rounded-full bg-sky-500/20 blur-3xl" />
             </div>
           </div>
 
@@ -42,12 +42,12 @@ export default function NotFound() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-white md:text-4xl">
             {t("heading")}
           </h2>
 
           {/* Description */}
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="body-muted mx-auto max-w-2xl text-lg">
             {t("description")}
           </p>
 

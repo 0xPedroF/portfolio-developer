@@ -1,25 +1,25 @@
 RewriteEngine On
 
-# Redirect root URL to /en/ if it's exactly the domain with no path
+# Redirect root URL to /en/
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule ^(.*)$ /en/ [L,R=302]
 
-# Handle Front Controller Pattern for Next.js
-# Only apply this rule if the requested file or directory doesn't exist
+# Front controller for Next.js static export
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# And if it's not already /en/ or /pt/
 RewriteCond %{REQUEST_URI} !^/(en|pt)/
 RewriteRule ^(.*)$ /index.html [L,QSA]
 
-# Enable CORS
+# Security headers
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header unset X-Powered-By
 </IfModule>
 
-# Serve correct MIME types
+# MIME types
 AddType application/javascript .js
 AddType application/json .json
 AddType text/css .css
@@ -43,4 +43,4 @@ AddType text/css .css
 # Compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
-</IfModule> 
+</IfModule>

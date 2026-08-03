@@ -11,7 +11,8 @@ export const gridItems = [
     id: 1,
     title: "I prioritize client collaboration, fostering open communication ",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh] lg:max-h-[70vh] 2xl:max-h-[65vh]",
+    className:
+      "col-span-2 min-h-[200px] sm:min-h-[220px] md:col-span-6 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
     img: "/b1.svg",
@@ -21,7 +22,8 @@ export const gridItems = [
     id: 2,
     title: "I'm very flexible with time zone communications",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:max-h-[50vh] 2xl:max-h-[45vh]",
+    className:
+      "col-span-1 min-h-[210px] sm:min-h-[230px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "",
@@ -31,9 +33,10 @@ export const gridItems = [
     id: 3,
     title: "My tech stack",
     description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:max-h-[50vh] 2xl:max-h-[45vh]",
+    className:
+      "col-span-1 min-h-[210px] sm:min-h-[230px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
-    titleClassName: "justify-center",
+    titleClassName: "justify-start",
     img: "",
     spareImg: "",
   },
@@ -41,20 +44,21 @@ export const gridItems = [
     id: 4,
     title: "Tech enthusiast with a passion for development.",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1 lg:max-h-[30vh] 2xl:max-h-[28vh]",
+    className:
+      "col-span-1 min-h-[140px] sm:min-h-[150px] md:col-span-3 md:row-span-1 md:min-h-[120px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
     titleClassName: "justify-start",
     img: "/grid.svg",
     spareImg: "/b4.svg",
   },
-
   {
     id: 5,
     title: "Currently building a JS Animation library",
     description: "The Inside Scoop",
-    className: "md:col-span-3 md:row-span-2 lg:max-h-[50vh] 2xl:max-h-[45vh]",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
+    className:
+      "col-span-1 min-h-[150px] sm:min-h-[170px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
+    imgClassName: "",
+    titleClassName: "justify-start lg:justify-center",
     img: "/b5.svg",
     spareImg: "/grid.svg",
   },
@@ -62,9 +66,10 @@ export const gridItems = [
     id: 6,
     title: "Do you want to start a project together?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1 lg:max-h-[30vh] 2xl:max-h-[28vh]",
+    className:
+      "col-span-2 min-h-[170px] sm:min-h-[180px] md:col-span-3 md:row-span-1 md:min-h-[120px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    titleClassName: "justify-center text-center max-w-full",
     img: "",
     spareImg: "",
   },
@@ -73,14 +78,6 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Totogram",
-    des: "Transform everyday photos into breathtaking Ghibli-inspired masterpieces with AI magic. Create stunning artwork that captures emotions.",
-    img: "/thumbnails/totogram-LP.webp",
-    iconLists: ["/re.svg", "/vite.svg", "/tail.svg", "/node-js.svg", "/mongodb.svg", "/firebase.svg"],
-    link: "https://totogram.io/",
-  },
-  {
-    id: 2,
     title: "Catalysing IT",
     des: "A modern digital services company website showcasing services, portfolio, and expertise in web development and software solutions.",
     img: "/thumbnails/catalysing-it-LP.webp",
@@ -88,20 +85,12 @@ export const projects = [
     link: "https://catalysingit.com/",
   },
   {
-    id: 3,
+    id: 2,
     title: "SailorMooners (SPA) - Hackathon ",
     des: "A single-page application inspired by Sailor Moon, developed in 24 hours during a hackathon. Built with jQuery.",
     img: "/thumbnails/spa-LP.webp",
     iconLists: ["/HTML5.svg", "/js.svg", "/CSS3.svg"],
     link: "https://sailormooners.pedrofdev.com/",
-  },
-  {
-    id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/thumbnails/iphone-LP.webp",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://iphone-clone.pedrofdev.com/",
   },
 ];
 
@@ -147,6 +136,22 @@ export const clientProjects = [
     img: "/thumbnails/oliverbaguera-LP.webp",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/vite.svg"],
     link: "https://oliverbaguera.pt/",
+  },
+  {
+    id: 3,
+    title: "Wow! Lisboa Free Tours",
+    des: "A bilingual marketing website for free walking tours in Lisbon, with tour listings, booking CTAs, gallery and company story.",
+    img: "/thumbnails/wowlisboa-LP.webp",
+    iconLists: ["/re.svg", "/next.svg", "/js.svg", "/tail.svg"],
+    link: "https://wowlisboafreetours.com/",
+  },
+  {
+    id: 4,
+    title: "Nimadi Pet Photography",
+    des: "A premium bilingual portfolio site for pet photography in Portugal, featuring galleries, services, testimonials and booking inquiry.",
+    img: "/thumbnails/nimadi-LP.webp",
+    iconLists: ["/re.svg", "/next.svg", "/js.svg", "/tail.svg"],
+    link: "https://nimadiphotography.com/",
   },
 ];
 

@@ -9,11 +9,10 @@ const Approach = () => {
   const t = useTranslations('approach');
   
   return (
-    <section className="relative w-full py-16">
-      <div className="section-shell space-y-12">
+    <section className="section-gap">
+      <div className="section-shell space-y-8 sm:space-y-10 md:space-y-12">
         <SectionTitle namespace="approach" titleKey="title" highlightedWordIndex={1} />
-      {/* remove bg-white dark:bg-black */}
-      <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6 max-w-full px-4">
+      <div className="flex w-full max-w-full flex-col items-center justify-center gap-4 px-0 sm:gap-6 sm:px-2 lg:flex-row lg:px-4">
         {/* add des prop */}
         <Card
           title={t('phase1Title')}
@@ -111,19 +110,12 @@ const Card = ({
           {icon}
         </div>
         <h2
-          // change text-3xl, add text-center
-          className="dark:text-white text-center text-3xl opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white 
-         group-hover/canvas-card:-translate-y-2 transition duration-200"
+          className="relative z-10 mt-4 text-center font-display text-2xl font-semibold tracking-tight text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white sm:text-3xl"
         >
           {title}
         </h2>
-        {/* add this one for the description */}
         <p
-          className="text-sm opacity-0 group-hover/canvas-card:opacity-100
-         relative z-10 mt-4 group-hover/canvas-card:text-white text-center
-         group-hover/canvas-card:-translate-y-2 transition duration-200"
-          style={{ color: "#E4ECFF" }}
+          className="relative z-10 mt-4 text-center text-sm leading-relaxed text-[#E4ECFF] opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:opacity-100"
         >
           {des}
         </p>
@@ -146,7 +138,7 @@ const AceternityIcon = ({ order }: { order: string }) => {
         />
         <span
           className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
+        justify-center rounded-full bg-slate-950 px-5 py-2 font-display text-2xl font-semibold tracking-tight text-sky-300 backdrop-blur-3xl"
         >
           {order}
         </span>

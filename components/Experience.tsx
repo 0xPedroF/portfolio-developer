@@ -10,16 +10,15 @@ const Experience = () => {
   const footerT = useTranslations('footer');
   
   return (
-    <section className="relative w-full py-16" id="experience">
-      <div className="section-shell space-y-12">
+    <section className="section-gap" id="experience">
+      <div className="section-shell space-y-8 sm:space-y-10 md:space-y-12">
         <SectionTitle namespace="experience" titleKey="title" highlightedWordIndex={1} />
 
-      <div className="w-full grid lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 grid-cols-1 gap-6 lg:gap-8 xl:gap-10 max-w-full">
+      <div className="grid w-full max-w-full grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
         {workExperience.map((card) => (
           <Button
             key={card.id}
-            //   random duration will be fun , I think , may be not
-            duration={Math.floor(Math.random() * 10000) + 10000}
+            duration={12000 + card.id * 1500}
             borderRadius="1.75rem"
             style={{
               background: "linear-gradient(135deg, rgba(20,16,41,0.95) 0%, rgba(6,10,27,0.9) 100%)",
@@ -38,13 +37,13 @@ const Experience = () => {
                 className="lg:w-32 md:w-20 w-16"
               />
               <div className="lg:ms-5">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
+                <h1 className="font-display text-start text-xl font-semibold tracking-tight md:text-2xl">
                   {card.id === 1 ? t('job1.title') : 
                    card.id === 2 ? t('job2.title') : 
                    card.id === 3 ? t('job3.title') : 
                    t('job4.title')}
                 </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
+                <p className="mt-3 text-start text-sm font-normal leading-relaxed text-white/65 md:text-[0.95rem]">
                   {card.id === 1 ? t('job1.desc') : 
                    card.id === 2 ? t('job2.desc') : 
                    card.id === 3 ? t('job3.desc') : 
@@ -57,11 +56,11 @@ const Experience = () => {
       </div>
 
       {/* Social Media Connect Section */}
-      <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 text-center shadow-[0_20px_70px_rgba(2,6,23,0.55)]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          {t('connectWith')} <span className="text-purple">{t('socialMedia')}</span>
+      <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center shadow-[0_20px_70px_rgba(2,6,23,0.55)] sm:rounded-2xl sm:p-8">
+        <h2 className="mb-4 font-display text-2xl font-semibold tracking-tight md:text-3xl">
+          {t('connectWith')} <span className="heading-accent">{t('socialMedia')}</span>
         </h2>
-        <p className="text-white/70 mb-8 max-w-2xl mx-auto">{t('checkOutWork')}</p>
+        <p className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base">{t('checkOutWork')}</p>
         <div className="flex flex-wrap items-center justify-center gap-5">
           {socialMedia.map((info) => (
             <a
