@@ -211,7 +211,7 @@ export const FloatingNav = ({
             alt=""
             className="h-8 w-auto select-none sm:h-9 md:h-10"
           />
-          <span className="hidden font-mono text-xs font-semibold uppercase tracking-[0.14em] text-white min-[400px]:inline sm:text-sm md:text-[0.95rem]">
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-white min-[400px]:text-xs sm:text-sm md:text-[0.95rem] md:tracking-[0.14em]">
             Pedro <span className="text-sky-400">Ferreira</span>
           </span>
         </button>
