@@ -15,7 +15,7 @@ export const gridItems = [
       "col-span-2 min-h-[200px] sm:min-h-[220px] md:col-span-6 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
-    img: "/b1.svg",
+    img: "/b1.webp",
     spareImg: "",
   },
   {
@@ -48,7 +48,7 @@ export const gridItems = [
       "col-span-1 min-h-[140px] sm:min-h-[150px] md:col-span-3 md:row-span-1 md:min-h-[120px] lg:col-span-2 lg:row-span-1 lg:min-h-[10.5rem]",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "/grid.svg",
+    img: "/grid.webp",
     spareImg: "/b4.svg",
   },
   {
@@ -59,8 +59,8 @@ export const gridItems = [
       "col-span-1 min-h-[150px] sm:min-h-[170px] md:col-span-3 md:row-span-2 md:min-h-[220px] lg:col-span-3 lg:row-span-2 lg:min-h-[20rem]",
     imgClassName: "",
     titleClassName: "justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
+    img: "/b5.webp",
+    spareImg: "/grid.webp",
   },
   {
     id: 6,
