@@ -3,12 +3,9 @@ RewriteEngine On
 # Custom 404 for static export (Next.js out/404.html)
 ErrorDocument 404 /404.html
 
-# Redirect root URL to /en/
+# Permanent redirect root → /en/ (better for SEO + one round-trip)
 RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^(.*)$ /en/ [L,R=302]
-
-# Locale home shortcuts (optional trailing content already handled by static files)
-# Unknown paths fall through to ErrorDocument 404 above.
+RewriteRule ^$ /en/ [L,R=301]
 
 # Security headers
 <IfModule mod_headers.c>
@@ -27,13 +24,14 @@ AddType application/javascript .js
 AddType application/json .json
 AddType text/css .css
 
-# Browser caching
+# Browser caching — HTML stays fresh; assets can be long-cached
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"

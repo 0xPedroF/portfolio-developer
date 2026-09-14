@@ -48,7 +48,7 @@ If redirection still doesn't work:
 3. Add a redirect rule:
    - Source: `/`
    - Destination: `/en/`
-   - Type: 302 (Temporary) or 301 (Permanent)
+   - Type: 301 (Permanent)
    - Save the changes
 
 This should ensure that visitors to your root domain are properly redirected to the English version of your portfolio. 
