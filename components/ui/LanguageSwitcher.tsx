@@ -3,10 +3,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const t = useTranslations('language');
+  const router = useRouter();
+  const pathname = usePathname();
   
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -30,9 +33,8 @@ export default function LanguageSwitcher() {
   
   // Change language
   const changeLanguage = (newLocale: string) => {
-    // Get current path without locale prefix
-    const path = window.location.pathname.replace(/^\/(en|pt)/, '') || '/';
-    window.location.href = `/${newLocale}${path}`;
+    const path = (pathname || '/').replace(/^\/(en|pt)/, '') || '/';
+    router.push(`/${newLocale}${path}`);
     setIsOpen(false);
   };
   
